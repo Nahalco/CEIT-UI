@@ -20,7 +20,12 @@
                   controller: 'LoginController',
                   controllerAs: 'vm',
               })
-
+              .state('index', {
+                        url: '/index',
+                        templateUrl: 'app/index/site.html',
+                        controller: 'IndexController',
+                        controllerAs: 'vm',
+                    })
       ;
 
     $urlRouterProvider.otherwise('/');

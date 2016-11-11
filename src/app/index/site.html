@@ -1,0 +1,257 @@
+
+<div ng-show="vm.loading" class="loading-container">
+    <div class="loading"></div>
+    <div id="loading-text">بارگذاری</div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body" id="top-banner">
+        {{vm.headerText}}
+    </div>
+</div>
+<div class="container" id="things">
+
+
+
+
+    <!--<div class="alert alert-success text-right " role="alert">-->
+        <!--سال تحصیلی جدید را بر همه  دوستان تبریک عرض میکنیم-->
+    <!--</div>-->
+    <!--<div class="alert alert-info text-right alert-dismissible" role="alert">-->
+        <!--حل تمرین این درس در ساعت ۱۱ برگزار خواهد شد-->
+    <!--</div>-->
+
+    <!--<div class="alert alert-warning text-right " role="alert">-->
+        <!--این جلسه به دلیل نبودن استاد تشکیل نخواهد شد-->
+    <!--</div>-->
+
+    <!--<div class="alert alert-danger text-right " role="alert">-->
+        <!--War Is Not Over-->
+    <!--</div>-->
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="row clock-holder">
+                <div class="col-md-9">
+                    <div id="clock">
+                        <ds-widget-clock
+                                theme="ligth"
+                                show-secs="true"
+                                digital-format="'hh:mm:ss a'"
+                        >
+                        </ds-widget-clock>
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="room-info">
+                        <ul>
+                            <li class="al">
+                                حاضرین
+                                <span class="badge" >{{vm.present}}</span>
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                            </li>
+                            <li class="al">
+                                غایبین
+                                <span class="badge">{{vm.abcent}}</span>
+                                <i class="fa fa-user-times" aria-hidden="true"></i>
+                            </li>
+                            <li class="al">
+                                شروع
+                                <span class="badge">{{vm.start_time}}</span>
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            </li>
+                            <li class="al">
+                                پایان
+                                <span class="badge">{{vm.end_time}}</span>
+                                <s><i class="fa fa-close" aria-hidden="true"></i></s>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="temperature col-sm-3 pull-right">
+                            <img class="" src="../../assets/icons/temperature-icon.png">
+                            <h4 class="title">
+                                دمای عمومی
+                            </h4>
+                            <div class="flex flex--justify-between">
+                                <div class="one-half">
+                                    <div class="temperature__reading">
+                                        {{ vm.temperature}}° C
+                                    </div>
+                                    <!--<div class="temperature__description">-->
+                                    <!--Current-->
+                                    <!--</div>-->
+                                </div>
+
+                            </div>
+                        </div> <!-- /.temperature -->
+                        <div class="temperature col-sm-3 pull-right">
+                            <img class="" src="../../assets/icons/light-bulb-icon.png">
+                            <h4 class="title">
+                                شدت نور
+                            </h4>
+                            <div class="flex flex--justify-between">
+
+                                <div class="one-half">
+                                    <div class="temperature__reading">
+                                        {{vm.light}} %
+                                    </div>
+                                    <!--<div class="temperature__description">-->
+                                    <!--Current-->
+                                    <!--</div>-->
+                                </div>
+
+                            </div>
+                        </div> <!-- /.temperature -->
+                        <div class="temperature col-sm-3 pull-right">
+                            <img class="" src="../../assets/icons/gas-icon.png">
+                            <h4 class="title">
+                                شدت گاز
+                            </h4>
+                            <div class="flex flex--justify-between">
+
+                                <div class="one-half">
+                                    <div class="temperature__reading">
+                                        {{vm.gas}} %
+                                    </div>
+                                    <!--<div class="temperature__description">-->
+                                    <!--Current-->
+                                    <!--</div>-->
+                                </div>
+
+                            </div>
+                        </div> <!-- /.temperature -->
+                        <div class="temperature col-sm-3 pull-right">
+                            <img class="" src="../../assets/icons/humidity-icon.png">
+                            <h4 class="title">
+                                رطوبت
+                            </h4>
+                            <div class="flex flex--justify-between">
+
+                                <div class="one-half">
+                                    <div class="temperature__reading">
+                                        {{vm.humidity}} %
+                                    </div>
+                                    <!--<div class="temperature__description">-->
+                                    <!--Current-->
+                                    <!--</div>-->
+                                </div>
+
+                            </div>
+                        </div> <!-- /.temperature -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="rpi-item" ng-repeat="(rpiKey , rpiValue) in vm.rpis">
+
+                <div class="lamp-item" ng-repeat="thing in rpiValue.things" ng-show="thing.type =='lamp'">
+
+        <span ng-if="thing.attributes.status == null">
+          <img ng-click="vm.onLampChange(rpiKey , thing)" class="lamp-icon" src="../../assets/icons/lamp-off.gif">
+        </span>
+                    <span ng-if="thing.attributes.status != null">
+          <img ng-if="thing.attributes.status == 'off'" ng-click="vm.onLampChange(rpiKey , thing)" class="lamp-icon" src="../../assets/icons/lamp-off.gif">
+          <img ng-if="thing.attributes.status == 'on' || (thing.attributes.status != null && thing.attributes.status != 'off')" ng-click="vm.onLampChange(rpiKey , thing)" class="lamp-icon" src="../../assets/icons/lamp-on.gif">
+        </span>
+
+
+                    <h3>
+                        <span class="label label-default">{{thing.id}}</span>
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--<div class="panel panel-default">-->
+    <!--<div class="panel-body">-->
+    <!--<span ng-repeat="thing in vm.things" ng-show="thing.type =='lamp'" class="pull-right">-->
+    <!--<input-->
+    <!--bs-switch-->
+    <!--ng-model="thing.attributes.status"-->
+    <!--type="checkbox"-->
+    <!--switch-active="{{ isActive }}"-->
+    <!--switch-readonly="{{ isReadonly }}"-->
+    <!--switch-size="{{ size }}"-->
+    <!--switch-animate="{{ animate }}"-->
+    <!--switch-label="{{thing.id}}"-->
+    <!--switch-icon=""-->
+    <!--switch-on-text="{{ onLabel }}"-->
+    <!--switch-off-text="{{ offLabel }}"-->
+    <!--switch-on-color="warning"-->
+    <!--switch-off-color="default"-->
+    <!--switch-radio-off="{{ radioOff }}"-->
+    <!--switch-label-width="{{ labelWisdth }}"-->
+    <!--switch-handle-width="{{ handleWidth }}"-->
+    <!--switch-inverse="{{ inverse }}"-->
+    <!--switch-change=""-->
+    <!--ng-true-value="'on'"-->
+    <!--ng-false-value="'off'">-->
+    <!--</span>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-inline" style="direction: rtl">
+                        <div class="form-group">
+                            <label >
+                                تایمر وقفه
+                            </label>
+                            <input type="number" ng-model="vm.timerDelay" ng-init="30" class="form-control" style="width: 100px" placeholder="30">
+                        </div>
+                        <div class="form-group">
+                            <label >
+                                حد آستانه شدت نور
+                            </label>
+                            <input type="number" ng-model="vm.lightThreshold" ng-init="30" class="form-control" style="width: 100px" placeholder="30">
+                        </div>
+                        <button ng-model="vm.timerBtn" ng-click="vm.timerSet()" class="btn btn-default">
+                            تنظیم
+                        </button>
+                    </div>
+                </div>
+                <!--<div class="col-sm-6">-->
+                <!--<div class="form-inline" style="direction: rtl">-->
+                <!--<div class="form-group">-->
+                <!--<label >-->
+                <!--حد آستانه شدت نور-->
+                <!--</label>-->
+                <!--<input type="number" ng-model="vm.lightThreshold" ng-init="30" class="form-control" style="width: 100px" placeholder="30">-->
+                <!--</div>-->
+                <!--<button ng-model="vm.lightThresholdBtn" ng-click="vm.lightThresholdSet()" class="btn btn-default">-->
+                <!--تنظیم-->
+                <!--</button>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
