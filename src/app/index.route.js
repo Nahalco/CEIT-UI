@@ -8,12 +8,7 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
-      })
+
       .state('login', {
                   url: '/login',
                   templateUrl: 'app/auth/login.html',
@@ -26,9 +21,23 @@
                         controller: 'IndexController',
                         controllerAs: 'vm',
                     })
+                    // home
+        .state('app', {
+            url: '/',
+            abstract: true,
+            templateUrl: 'app/main/main.html',
+            controller: 'AppController',
+            controllerAs: 'vm',
+        })
+        .state('app.dashboard', {
+            url: 'dashboard',
+            templateUrl: 'app/main/home.html',
+            controller: 'DashboardController',
+            controllerAs: 'vm',
+        })
       ;
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/index');
   }
 
 })();

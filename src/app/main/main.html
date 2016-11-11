@@ -1,21 +1,114 @@
-<div class="container">
 
-  <div>
-    <acme-navbar creation-date="main.creationDate"></acme-navbar>
+<div class='sp-container'>
+  <div class='sp-sidebar'>
+    <div class='logo'>
+      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/sparked_logo.png'>
+    </div>
+    <div class='nav'>
+      <ul>
+        <li class='nav-label'>
+          Main
+        </li>
+        <li>
+          <a ui-sref="app.dashboard">
+            <i class='fa fa-dashboard'></i>
+            Dashboard
+          </a>
+        </li>
+        <li class='sp-dropdown'>
+          <a  >
+            <i class='fa fa-square'></i>
+             اتاق
+          </a>
+          <ul class='sp-dropdown-menu'>
+            <li>
+              <a ui-sref="app.room.list">
+                لیست
+              </a>
+            </li>
+            <li>
+              <a ui-sref="app.room.add">
+                اضافه کردن
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a ui-sref="app.zone.set">
+            <i class='fa fa-money'></i>
+            Zone
+          </a>
+        </li>
+
+      </ul>
+    </div>
   </div>
+  <div class='sp-content'>
+    <header class='header'>
+      <div class='sp-navbar'>
+        <div class='container-fluid'>
+          <div class='nav pull-left'>
+            <button class='prev'>
+              <i class='fa fa-angle-left'></i>
+            </button>
+            <button class='next'>
+              <i class='fa fa-angle-right'></i>
+            </button>
+          </div>
+          <div class='profile pull-right'>
+            <div class='avatar'>
+              <img src='http://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/profile/profile-80_3.jpg'>
+            </div>
+            <span>
+              Andy Tran
+              <i class='fa fa-unsorted'></i>
+            </span>
+          </div>
+        </div>
+      </div>
 
-  <div class="jumbotron text-center">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p class="animated infinite" ng-class="main.classAnimation">
-      <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
-    </p>
-    <p>
-      With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
-    </p>
+    </header>
+    <div class='main-content' ui-view>
+
+    </div>
+    <div class='container-fluid'>
+
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
+
+  <div id="sidebar-nav">
+    <ul>
+      <li class="active"><a><i class="fa fa-dashboard"></i>
+        داشبورد
+      </a></li>
+      <li >
+        <a ui-sref="app.dashboard"><i class="fa fa-desktop"></i>
+        نمای کلی
+      </a></li>
+      <li >
+        <a ui-sref="app.room.list"><i class="fa fa-square"></i>
+        اتاق ها
+        </a>
+      </li>
+      <li >
+        <a ui-sref="app.room.add"><i class="fa fa-plus"></i>
+        اضافه کردن اتاق
+        </a>
+      </li>
+      <li >
+        <a ui-sref="app.zone.set"><i class="fa fa-plus"></i>
+          zone
+        </a>
+      </li>
+      <li><a ui-sref="app.users.list"><i class="fa fa-user"></i>
+        کاربران
+      </a></li>
+
+    </ul>
+
   </div>
 
   <div class="row">
@@ -31,4 +124,4 @@
     </div>
   </div>
 
-</div>
+</div> -->
