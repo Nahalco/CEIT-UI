@@ -35,6 +35,29 @@
             controller: 'DashboardController',
             controllerAs: 'vm',
         })
+        // room
+      .state('app.room', {
+          url: 'room',
+          template: '<div ui-view></div>',
+          abstract: true,
+      })
+      //room list
+      .state('app.room.list', {
+          url: '/list',
+          templateUrl: 'app/room/listRoom.html',
+          controller: 'TableController',
+          controllerAs: 'vm'
+      })
+      .state('app.room.add', {
+          url: '/list',
+          templateUrl: 'app/room/addRoom.html',
+          controller: 'AddItemController',
+          controllerAs: 'vm',
+          resolve: {
+            editModel: ['$stateParams', 'Table', function($stateParams, Table) {
+          }]
+        }
+      })
       ;
 
     $urlRouterProvider.otherwise('/index');

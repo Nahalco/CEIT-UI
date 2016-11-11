@@ -1,0 +1,47 @@
+<div ng-init="vm.activate('room')">
+
+  <div class="content-header">
+      <h1 class="text-right">
+          اتاق ها
+      </h1>
+      <p class="text-right">
+لیست اتاق ها
+      </p>
+  </div>
+
+<div id="content-body">
+  <div class="row">
+
+    <div class="col-sm-12">
+
+      <div class=" table table-striped table-responsive">
+        <table class="table table-bordered table-hover right" dir="rtl"
+          st-pipe="vm.getItems"
+          st-table="vm.items">
+
+          <thead>
+            <tr class="info">
+              <th st-sort="id" class=" text-center">
+                #
+              </th>
+              <th st-sort="number" class=" text-center">
+                نام
+              </th>
+              <th st-sort="name" class=" text-center">
+                شماره
+              </th>
+              <th st-sort="roof" class=" text-center">
+                طبقه
+              </th>
+            </tr>
+          </thead>
+
+        </table>
+    </div>
+
+
+  </div>
+
+</div>
+
+</div>

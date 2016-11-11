@@ -1,0 +1,50 @@
+
+<div ng-init="vm.activate('room')">
+
+  <div class="content-header">
+      <h1 class="text-right">
+          اتاق ها
+      </h1>
+      <p class="text-right">
+  اتاق ها
+      </p>
+  </div>
+
+<div id="content-body">
+
+  <div class="row">
+
+    <div class="col-sm-6 col-sm-3 col-sm-offset-3">
+      <form name="vm.appForm" ng-submit="vm.submit()" >
+        <div class="form-group">
+          <label class="right">
+            شماره اتاق
+          </label>
+          <input ng-model="vm.fields.number" type="number" class="form-control" >
+        </div>
+        <div class="form-group">
+          <label class="right">
+          نام اتاق
+          </label>
+          <input ng-model="vm.fields.name" type="text" class="form-control" >
+        </div>
+        <div class="form-group">
+          <label class="right">
+          طبقه
+        </label>
+          <input ng-model="vm.fields.roof" type="number" class="form-control ">
+        </div>
+        <button type="submit" class="btn btn-success right">Submit</button>
+      </form>
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+
+</div>
