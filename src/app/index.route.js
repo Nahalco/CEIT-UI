@@ -58,6 +58,19 @@
           }]
         }
       })
+      // zone
+        .state('app.zone', {
+            url: 'zone',
+            template: '<div ui-view></div>',
+            abstract: true,
+        })
+        // zone
+        .state('app.zone.set', {
+            url: '/set',
+            templateUrl: 'app/zone/zone.html',
+            controller: 'ZoneController',
+            controllerAs: 'vm'
+        })
       ;
 
     $urlRouterProvider.otherwise('/index');

@@ -1,0 +1,36 @@
+#top-dashboard{
+  font-size:30px;
+  text-align: right;
+  padding: 10px;
+}
+
+
+#zone{
+  .toolbax{
+    .toolbox-item{
+      .toolbox-title{
+        background-color: white;
+        padding: 10px;
+        font-size: 22px;
+        border-bottom: 1px solid black;
+      }
+      .toolbox-content{
+        background-color: white;
+      }
+    }
+  }
+
+  .zone-item{
+    width: 90%;
+    margin: auto;
+    .zone-title{
+      font-size: 14px;
+    }
+    .zone-panel {
+      ol{
+        min-height: 150px;
+        background-color: red;
+      }
+    }
+  }
+}
