@@ -42,7 +42,7 @@
             abstract: true,
         })
 
-        //room list
+        //user list
         .state('app.user.list', {
             url: '/list',
             templateUrl: 'app/users/userList.html',
@@ -52,6 +52,30 @@
         .state('app.user.add', {
             url: '/add',
             templateUrl: 'app/users/addUser.html',
+            controller: 'AddItemController',
+            controllerAs: 'vm',
+            resolve: {
+                editModel: ['$stateParams', 'Table', function($stateParams, Table) {
+                }]
+            }
+        })
+        // building
+        .state('app.building', {
+            url: 'building',
+            template: '<div ui-view></div>',
+            abstract: true,
+        })
+
+        //building list
+        .state('app.building.list', {
+            url: '/list',
+            templateUrl: 'app/building/listBuilding.html',
+            controller: 'TableController',
+            controllerAs: 'vm'
+        })
+        .state('app.building.add', {
+            url: '/add',
+            templateUrl: 'app/building/addBuilding.html',
             controller: 'AddItemController',
             controllerAs: 'vm',
             resolve: {
