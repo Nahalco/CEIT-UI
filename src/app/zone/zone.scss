@@ -16,6 +16,7 @@
       }
       .toolbox-content{
         background-color: white;
+
       }
     }
   }
@@ -29,8 +30,32 @@
     .zone-panel {
       ol{
         min-height: 150px;
-        background-color: red;
+        background-color: grey  ;
       }
     }
   }
+}
+.drag-item{
+  margin: 10px;
+  float: right;
+}
+.drag-lamp{
+  background-image: url("../../../assets/icons/lamp-on.gif");
+  background-repeat: no-repeat;
+  background-size: 50px 70px;
+  width: 50px;
+  height: 80px;
+  padding-top: 70px;
+  text-align:center;
+  border: 1px solid white;
+}
+.drag-multi{
+  background-image: url("../../../assets/icons/multi.png");
+  background-repeat: no-repeat;
+  background-size: 50px 70px;
+  width: 50px;
+  height: 80px;
+  padding-top: 70px;
+  text-align:center;
+  border: 1px solid white;
 }

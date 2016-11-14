@@ -12,10 +12,19 @@
     <div class="toolbax">
       <div class="toolbox-item">
         <div class="toolbox-title">
-          title
+          لامپ
         </div>
         <div class="toolbox-content">
-          <div ng-repeat='item in list1' ng-show="item.title" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="list1" jqyoui-draggable="{index: {{$index}}, animate: true, placeholder: 'keep'}">{{item.title}}</div>
+          <div class="drag-lamp drag-item" ng-repeat='item in vm.lamps' ng-show="item.title" data-drag="true" ng-model="vm.lamps" jqyoui-draggable="{index: {{$index}}, animate: true}">{{item.title}}</div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="toolbox-item">
+        <div class="toolbox-title">
+          مولتی سنسور
+        </div>
+        <div class="toolbox-content">
+            <div class="drag-multi drag-item" ng-repeat='item in vm.multisensors' ng-show="item.title" data-drag="true" ng-model="vm.multisensors" jqyoui-draggable="{index: {{$index}}, animate: true,}">{{item.title}}</div>
         </div>
       </div>
     </div>
@@ -25,8 +34,8 @@
     <div ng-repeat="zone in vm.zones" class="zone-item">
       <div class="zone-title">{{zone.title}}</div>
       <div class="zone-panel">
-        <ol data-drop="true" ng-model='list4' jqyoui-droppable="{multiple:true}">
-            <li ng-repeat="item in list4 track by $index" ng-show="item.title" data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="list4" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</li>
+        <ol data-drop="true" ng-model='zone.list' jqyoui-droppable="{multiple:true}">
+            <div class=" drag-item" ng-repeat="item in zone.list track by $index" ng-class="item.type == 'lamp' ? 'drag-lamp' : ''  || item.type == 'multi' ? 'drag-multi' : ''"  ng-show="item.title" data-drop="true"  ng-model="zone.list" jqyoui-droppable="{index: {{$index}}, animate:true , onDrop: 'dropCallback'}">{{item.type}} </div>
         </ol>
       </div>
       <div class="clearfix"></div>
