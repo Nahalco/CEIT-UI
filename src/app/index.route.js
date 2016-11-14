@@ -35,12 +35,37 @@
             controller: 'DashboardController',
             controllerAs: 'vm',
         })
+        // users
+        .state('app.user', {
+            url: 'user',
+            template: '<div ui-view></div>',
+            abstract: true,
+        })
+
+        //room list
+        .state('app.user.list', {
+            url: '/list',
+            templateUrl: 'app/users/userList.html',
+            controller: 'TableController',
+            controllerAs: 'vm'
+        })
+        .state('app.user.add', {
+            url: '/add',
+            templateUrl: 'app/users/addUser.html',
+            controller: 'AddItemController',
+            controllerAs: 'vm',
+            resolve: {
+                editModel: ['$stateParams', 'Table', function($stateParams, Table) {
+                }]
+            }
+        })
         // room
       .state('app.room', {
           url: 'room',
           template: '<div ui-view></div>',
           abstract: true,
       })
+
       //room list
       .state('app.room.list', {
           url: '/list',
@@ -49,7 +74,7 @@
           controllerAs: 'vm'
       })
       .state('app.room.add', {
-          url: '/list',
+          url: '/add',
           templateUrl: 'app/room/addRoom.html',
           controller: 'AddItemController',
           controllerAs: 'vm',

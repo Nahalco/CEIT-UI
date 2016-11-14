@@ -6,14 +6,30 @@
     </div>
     <div class='nav'>
       <ul>
-        <li class='nav-label'>
-          Main
-        </li>
+
         <li>
           <a ui-sref="app.dashboard">
             <i class='fa fa-dashboard'></i>
-            Dashboard
+            داشبورد
           </a>
+        </li>
+        <li class='sp-dropdown'>
+          <a>
+            <i class='fa fa-users'></i>
+            کاربران
+          </a>
+          <ul class='sp-dropdown-menu'>
+            <li>
+              <a ui-sref="app.user.list">
+                لیست
+              </a>
+            </li>
+            <li>
+              <a ui-sref="app.user.add">
+                اضافه کردن
+              </a>
+            </li>
+          </ul>
         </li>
         <li class='sp-dropdown'>
           <a  >
@@ -33,7 +49,8 @@
             </li>
           </ul>
         </li>
-        <li>
+
+        <li class='sp-dropdown'>
           <a ui-sref="app.zone.set">
             <i class='fa fa-money'></i>
             Zone
