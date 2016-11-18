@@ -1,9 +1,7 @@
 # client_ui
-gulp angular single page for web application 
+gulp angular single page for internet of things client web application 
 
 This project development by gulp and angular
-
-
 
 Development:
 ===========
