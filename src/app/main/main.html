@@ -1,12 +1,11 @@
 
-<div class='sp-container'>
+<div class='sp-container' >
   <div class='sp-sidebar'>
     <div class='logo'>
-      <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/sparked_logo.png'>
+      <!--<img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/sparked_logo.png'>-->
     </div>
     <div class='nav'>
       <ul>
-
         <li>
           <a ui-sref="app.dashboard">
             <i class='fa fa-dashboard'></i>
@@ -14,17 +13,17 @@
           </a>
         </li>
         <li class='sp-dropdown'>
-          <a>
+          <a ui-sref="app.user.list">
             <i class='fa fa-users'></i>
             کاربران
           </a>
           <ul class='sp-dropdown-menu'>
-            <li>
+            <li ng-class="{'sp-dropdown-active' : vm.$state.includes('app.user.list')}">
               <a ui-sref="app.user.list">
                 لیست
               </a>
             </li>
-            <li>
+            <li ng-class="{'sp-dropdown-active' : vm.$state.includes('app.user.add')}">
               <a ui-sref="app.user.add">
                 اضافه کردن
               </a>
@@ -33,17 +32,17 @@
         </li>
 
         <li class='sp-dropdown'>
-          <a  >
+          <a ui-sref="app.building.list">
             <i class='fa fa-square'></i>
             ساختمان
           </a>
           <ul class='sp-dropdown-menu'>
-            <li>
+            <li ng-class="{'sp-dropdown-active' : vm.$state.includes('app.building.list')}">
               <a ui-sref="app.building.list">
                 لیست
               </a>
             </li>
-            <li>
+            <li ng-class="{'sp-dropdown-active' : vm.$state.includes('app.building.add')}">
               <a ui-sref="app.building.add">
                 اضافه کردن
               </a>
@@ -52,17 +51,17 @@
         </li>
 
         <li class='sp-dropdown'>
-          <a  >
+          <a ui-sref="app.room.list">
             <i class='fa fa-square'></i>
              اتاق
           </a>
           <ul class='sp-dropdown-menu'>
-            <li>
+            <li ng-class="{'sp-dropdown-active' : vm.$state.includes('app.room.list')}">
               <a ui-sref="app.room.list">
                 لیست
               </a>
             </li>
-            <li>
+            <li ng-class="{'sp-dropdown-active' : vm.$state.includes('app.room.add')}">
               <a ui-sref="app.room.add">
                 اضافه کردن
               </a>
@@ -84,27 +83,29 @@
     <header class='header'>
       <div class='sp-navbar'>
         <div class='container-fluid'>
-          <div class='nav pull-left'>
-            <button class='prev'>
-              <i class='fa fa-angle-left'></i>
-            </button>
-            <button class='next'>
-              <i class='fa fa-angle-right'></i>
-            </button>
-          </div>
-          <div class='profile pull-right'>
-            <div class='avatar'>
-              <img src='http://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/profile/profile-80_3.jpg'>
-            </div>
+          <!--<div class='nav pull-left'>-->
+            <!--<button class='prev'>-->
+              <!--<i class='fa fa-angle-left'></i>-->
+            <!--</button>-->
+            <!--<button class='next'>-->
+              <!--<i class='fa fa-angle-right'></i>-->
+            <!--</button>-->
+          <!--</div>-->
+          <div class='profile pull-left'>
             <span>
-              Andy Tran
-              <i class='fa fa-unsorted'></i>
+
+              مجید لطفی نیا
             </span>
+            <div class='avatar'>
+              <img src='../../assets/avatar.png'>
+            </div>
+
           </div>
         </div>
       </div>
 
     </header>
+
     <div class='main-content' ui-view>
 
     </div>
@@ -113,52 +114,3 @@
     </div>
   </div>
 </div>
-
-<!-- <div class="container">
-
-  <div id="sidebar-nav">
-    <ul>
-      <li class="active"><a><i class="fa fa-dashboard"></i>
-        داشبورد
-      </a></li>
-      <li >
-        <a ui-sref="app.dashboard"><i class="fa fa-desktop"></i>
-        نمای کلی
-      </a></li>
-      <li >
-        <a ui-sref="app.room.list"><i class="fa fa-square"></i>
-        اتاق ها
-        </a>
-      </li>
-      <li >
-        <a ui-sref="app.room.add"><i class="fa fa-plus"></i>
-        اضافه کردن اتاق
-        </a>
-      </li>
-      <li >
-        <a ui-sref="app.zone.set"><i class="fa fa-plus"></i>
-          zone
-        </a>
-      </li>
-      <li><a ui-sref="app.users.list"><i class="fa fa-user"></i>
-        کاربران
-      </a></li>
-
-    </ul>
-
-  </div>
-
-  <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-        <div class="caption">
-          <h3>{{ awesomeThing.title }}</h3>
-          <p>{{ awesomeThing.description }}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div> -->

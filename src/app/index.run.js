@@ -6,9 +6,14 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log) {
+  function runBlock($log , $rootScope, $state, $stateParams, $urlRouter) {
 
     $log.debug('runBlock end');
+    var userStatus;
+
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+
   }
 
 })();

@@ -68,7 +68,7 @@
     function submit(isValid) {
 
 
-      var form_data = vm.fields;
+      var form_data = vm.model;
       if (!editModel) {console.log("on submit" , vm.fields , entity , editModel)
         Table.addItem(entity, form_data).then(onAddSuccess, onAddFailure);
       } else {

@@ -8,7 +8,6 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-
       .state('login', {
                   url: '/login',
                   templateUrl: 'app/auth/login.html',
@@ -83,6 +82,17 @@
                 }]
             }
         })
+        .state('app.building.edit', {
+            url: '/edit/:buildingId',
+            templateUrl: 'app/building/addBuilding.html',
+            controller: 'AddItemController',
+            controllerAs: 'vm',
+            resolve: {
+                editModel: ['$stateParams', 'Table', function($stateParams, Table) {
+                    return Table.getItem('building' , $stateParams.buildingId);
+                }]
+            }
+        })
         // room
       .state('app.room', {
           url: 'room',
@@ -122,7 +132,12 @@
         })
       ;
 
-    $urlRouterProvider.otherwise('/index');
+    //$urlRouterProvider.otherwise('/index');
+      $urlRouterProvider.otherwise(function ($injector) {
+          var $state = $injector.get("$state");
+          $state.go('index');
+      });
+
   }
 
 })();

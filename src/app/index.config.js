@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig) {
+  function config($logProvider, toastrConfig , RestangularProvider , $httpProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -16,6 +16,23 @@
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
+
+
+
+    //set restangular config
+    RestangularProvider.setBaseUrl('http://localhost:1337');
+    RestangularProvider.setDefaultHttpFields({
+      withCredentials: false,
+      cache: false
+    });
+    RestangularProvider.setDefaultHeaders({
+      'Accept': '*/*',
+      'Content-Type': 'application/json',
+      'X-Accept-Version': '1.0.0'
+    });
+
+
+
   }
 
 })();

@@ -1,10 +1,9 @@
-<div ng-init="vm.activate('room')">
+<div ng-init="vm.activate('building')">
 
     <div class="content-header">
         <h1 class="text-right">
 لیست ساختمان ها
         </h1>
-
     </div>
 
     <div id="content-body">
@@ -34,24 +33,48 @@
                         </tr>
 
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>
-دانشکده مهندسی کامپیوتر
-                                </td>
-                                <td>
-                                    4
-                                </td>
+                        <tbody ng-show="!vm.isLoading">
+                            <tr ng-repeat="item in vm.items"
+                                >
+                                <td ng-click="vm.$state.go('app.building.edit', {buildingId: item.id})">1</td>
+                                <td ng-bind="item.name" ng-click="vm.$state.go('app.building.edit', {buildingId: item.id})"></td>
+                                <td ng-bind="item.floor" ng-click="vm.$state.go('app.building.edit', {buildingId: item.id})"></td>
                                 <td class="table-operation">
-
                                         <i class="fa fa-trash"></i>
-
+                                    <a ui-sref="app.building.edit({buildingId: item.id})">
                                         <i class="fa fa-edit"></i>
+                                    </a>
 
                                 </td>
                             </tr>
                         </tbody>
+
+                        <tbody ng-show="vm.isLoading">
+                        <tr>
+                            <td class="text-center"
+                                colspan="3">Loading...</td>
+                        </tr>
+                        </tbody>
+
+                        <tbody ng-if="vm.pagination.numberOfPages < 1">
+                        <tr>
+                            <td class="text-center"
+                                colspan="3">No result!</td>
+                        </tr>
+                        </tbody>
+
+                        <tfoot ng-if="vm.pagination.numberOfPages > 1">
+                        <tr>
+                            <td class="text-center"
+                                st-pagination=""
+                                st-items-by-page="10"
+                                colspan="3">
+                            </td>
+                        </tr>
+                        </tfoot>
+
+
+
                     </table>
                 </div>
 
