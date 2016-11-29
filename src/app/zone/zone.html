@@ -34,8 +34,16 @@
     <div ng-repeat="zone in vm.zones" class="zone-item">
       <div class="zone-title">{{zone.title}}</div>
       <div class="zone-panel">
-        <ol data-drop="true" ng-model='zone.list' jqyoui-droppable="{multiple:true}">
-            <div class=" drag-item" ng-repeat="item in zone.list track by $index" ng-class="item.type == 'lamp' ? 'drag-lamp' : ''  || item.type == 'multi' ? 'drag-multi' : ''"  ng-show="item.title" data-drop="true"  ng-model="zone.list" jqyoui-droppable="{index: {{$index}}, animate:true , onDrop: 'dropCallback'}">{{item.type}} </div>
+        <ol data-drop="true" data-drag="true"  ng-model='zone.list'  jqyoui-droppable="{multiple:true}">
+            <div
+                    class=" drag-item"
+                    ng-repeat="item in zone.list track by $index"
+                    ng-class="item.type == 'lamp' ? 'drag-lamp' : ''  || item.type == 'multi' ? 'drag-multi' : ''"
+                    ng-show="item.title" data-drop="true"
+                    ng-model="zone.list"
+                    jqyoui-droppable="{index: {{$index}}, animate:true , onDrop: 'dropCallback'}"
+                    jqyoui-draggable="{index: {{$index}}, animate: true,}"
+            >{{item.type}} </div>
         </ol>
       </div>
       <div class="clearfix"></div>

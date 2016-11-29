@@ -1,6 +1,14 @@
  $fa-font-path: "../../bower_components/font-awesome/fonts";
  @import "../../bower_components/font-awesome/scss/font-awesome.scss";
 
+
+ .form-control{
+    text-align: right;
+ }
+ .list-table{
+   width: 90%;
+   margin: auto;
+ }
  /* Colors */
 body {
   background: #e9edf5;
@@ -96,6 +104,10 @@ body {
   border-bottom: none;
 }
 .sp-container .sp-sidebar .nav ul li.sp-dropdown.sp-dropdown-active > a {
+  background: #33b7d8;
+  color: #ffffff;
+}
+.sp-active{
   background: #33b7d8;
   color: #ffffff;
 }

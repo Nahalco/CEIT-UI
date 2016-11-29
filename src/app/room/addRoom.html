@@ -2,46 +2,63 @@
 <div ng-init="vm.activate('room')">
 
   <div class="content-header">
-      <h1 class="text-right">
-          اتاق ها
-      </h1>
-      <p class="text-right">
-  اتاق ها
-      </p>
+      <div class="text-right col-md-6 pull-right">
+        <h1>
+اتاق جدید
+        </h1>
+      </div>
+      <div class="col-md-6 pull-left">
+        <a ui-sref="app.room.list">
+          لیست
+          <span class="fa fa-list"></span>
+        </a>
+      </div>
   </div>
 
 <div id="content-body">
 
-  <div class="row">
+  <form ng-submit="vm.submit()" name="vm.appForm" novalidate>
+    <div class="row">
 
-    <div class="col-sm-6 col-sm-3 col-sm-offset-3">
-      <form name="vm.appForm" ng-submit="vm.submit()" >
-        <div class="form-group">
-          <label class="right">
-            شماره اتاق
-          </label>
-          <input ng-model="vm.fields.number" type="number" class="form-control" >
-        </div>
-        <div class="form-group">
-          <label class="right">
-          نام اتاق
-          </label>
-          <input ng-model="vm.fields.name" type="text" class="form-control" >
-        </div>
-        <div class="form-group">
-          <label class="right">
-          طبقه
-        </label>
-          <input ng-model="vm.fields.roof" type="number" class="form-control ">
-        </div>
-        <button type="submit" class="btn btn-success right">Submit</button>
-      </form>
+      <div class="col-sm-6 col-sm-3 col-sm-offset-3">
+        <form name="vm.appForm" ng-submit="vm.submit()" >
+
+          <div ng-class="{'has-error': vm.appForm['building'].$touched && vm.appForm['building'].$invalid}"
+               class="form-group">
+            <label class="right">
+              <sup>*</sup>ساختمان
+
+            </label>
+            <select ng-required="true"
+                    name="building"
+                    class="form-control text-right"
+                    ng-model="vm.model.building"
+                    ng-options="buildingItem.id as buildingItem.name for buildingItem in vm.building"
+            ></select>
+            <span class="help-block text-right"
+                  ng-show="vm.appForm['building'].$touched && vm.appForm['building'].$invalid">
+            ساختمان مورد نیاز است
+            </span>
+          </div>
+
+          <div ng-class="{'has-error': vm.appForm['name'].$touched && vm.appForm['name'].$invalid}" class="form-group">
+            <label class="right">
+              <sup>*</sup>نام اتاق
+            </label>
+            <input name="name" ng-required="true" ng-model="vm.model.name" type="text" class="form-control" >
+            <span class="help-block text-right"
+                  ng-show="vm.appForm['name'].$touched && vm.appForm['name'].$invalid">
+            نام اتاق مورد نیاز است
+            </span>
+          </div>
+          <button ng-disabled="vm.appForm.$invalid"  type="submit" class="btn btn-success right left">ثبت</button>
+        </form>
+
+      </div>
+
 
     </div>
-
-
-  </div>
-
+  </form>
 
 </div>
 

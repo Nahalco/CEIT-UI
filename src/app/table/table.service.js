@@ -27,11 +27,16 @@
       return Restangular.one(entity, id).customPUT(item,null, {}, header);
     }
 
+    function removeItem(entity, id){
+      return Restangular.one(entity, id).remove( '', null, {}, header);
+    }
+
     return {
       getItems: getItems,
       getItem: getItem,
       addItem: addItem,
-      editItem: editItem
+      editItem: editItem,
+      removeItem : removeItem,
     };
 
   }

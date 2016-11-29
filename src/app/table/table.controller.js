@@ -6,7 +6,7 @@
     .controller('TableController', TableController);
 
   /** @ngInject */
-  function TableController(Table, $stateParams, $state) {
+  function TableController(Table, $stateParams, $state,toastr) {
     var vm = this,
       entity;
     vm.$state = $state
@@ -14,34 +14,28 @@
     vm.activate = function(what) {
       entity = what;
       vm.urlParams = $stateParams;
+    }
 
-      // if (what === 'treatment') {
-      //   entity = 'patient/' + vm.urlParams.patientId + '/treatment';
-      // }
-      //
-      // if (what === 'insurance') {
-      //   entity = 'patient/' + vm.urlParams.patientId + '/insurance';
-      // }
-      //
-      // if (what === 'photocollection') {
-      //   entity = 'patient/' + vm.urlParams.patientId + '/photocollection';
-      // }
-      //
-      // if (what === 'photo') {
-      //   entity = 'patient/photocollection/photo';
-      // }
-      //
-      // if (what == "billing/invoice/all") {
-      //   Table.getItems('user/role/responsible').then(function(res) {
-      //     vm.responsibleList = res;
-      //   });
-      //   //nextState = 'app.billing.show';
-      // }
-      //
-      // if (what == 'billing/{id}/invoice/billing/id') {
-      //   entity = 'billing/' + $stateParams.billingId + '/invoice/billing/id'
-      // }
+    vm.delete = function (item) {
+      Table.removeItem(entity , item.id).then(function (res) {
+        var index = vm.items.indexOf(item);
+        vm.items.splice(index, 1);
+      }, onDeleteFailure);
+    }
 
+    function onDeleteSuccess(res) {
+      console.log("onDeleteSuccess" , res)
+      toastr.info('حذف شد');
+
+      // var index = vm.items.indexOf(res);
+      // vm.items.splice(index, 1);
+
+      //vm.items.splice(res.id , 1);
+    }
+
+    function onDeleteFailure(res) {
+      console.log("onDeleteFailure" , res)
+      toastr.error('حذف نشد');
     }
 
     vm.items = [];

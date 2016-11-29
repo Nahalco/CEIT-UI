@@ -93,6 +93,12 @@
                 }]
             }
         })
+        // .state('app.building.delete', {
+        //     url: '/delete/:buildingId',
+        //     templateUrl: 'app/building/addBuilding.html',
+        //     controller: 'AddItemController',
+        //     controllerAs: 'vm',
+        // })
         // room
       .state('app.room', {
           url: 'room',
@@ -117,6 +123,17 @@
           }]
         }
       })
+        .state('app.room.edit', {
+            url: '/edit/:roomId',
+            templateUrl: 'app/room/addRoom.html',
+            controller: 'AddItemController',
+            controllerAs: 'vm',
+            resolve: {
+                editModel: ['$stateParams', 'Table', function($stateParams, Table) {
+                    return Table.getItem('room' , $stateParams.roomId);
+                }]
+            }
+        })
       // zone
         .state('app.zone', {
             url: 'zone',
