@@ -55,9 +55,19 @@
                             </span>
                         </div>
 
-                        <button ng-disabled="vm.appForm.$invalid" type="submit" class="btn btn-success right">
-                            ذخیره
+                        <button class="btn btn-success"
+                                type="submit"
+                                ng-disabled="vm.appForm.$invalid">
+            <span ng-if="vm.isEdit">
+              ویرایش
+            </span>
+                            <span ng-if="!vm.isEdit">
+              ایجاد
+            </span>
                         </button>
+                        <!--<button ng-disabled="vm.appForm.$invalid" type="submit" class="btn btn-success right">-->
+                            <!--ذخیره-->
+                        <!--</button>-->
                     </form>
 
                 </div>

@@ -2,17 +2,17 @@
 <div ng-init="vm.activate('room')">
 
   <div class="content-header">
-      <div class="text-right col-md-6 pull-right">
-        <h1>
-اتاق جدید
-        </h1>
-      </div>
-      <div class="col-md-6 pull-left">
-        <a ui-sref="app.room.list">
-          لیست
-          <span class="fa fa-list"></span>
-        </a>
-      </div>
+    <div class="text-right col-md-6 pull-right">
+      <h1>
+        لیست کاربران ها
+      </h1>
+    </div>
+    <div class="col-md-6 pull-left">
+      <a ui-sref="app.user.add">
+        اضافه کردن
+        <span class="fa fa-plus"></span>
+      </a>
+    </div>
   </div>
 
 <div id="content-body">
@@ -51,7 +51,17 @@
             نام اتاق مورد نیاز است
             </span>
           </div>
-          <button ng-disabled="vm.appForm.$invalid"  type="submit" class="btn btn-success right left">ثبت</button>
+          <button class="btn btn-success"
+                  type="submit"
+                  ng-disabled="vm.appForm.$invalid">
+            <span ng-if="vm.isEdit">
+              ویرایش
+            </span>
+            <span ng-if="!vm.isEdit">
+              ایجاد
+            </span>
+          </button>
+          <!--<button ng-disabled="vm.appForm.$invalid"  type="submit" class="btn btn-success right left">ثبت</button>-->
         </form>
 
       </div>

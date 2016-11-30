@@ -58,6 +58,17 @@
                 }]
             }
         })
+        .state('app.user.edit', {
+            url: '/edit/:userId',
+            templateUrl: 'app/users/addUser.html',
+            controller: 'AddItemController',
+            controllerAs: 'vm',
+            resolve: {
+                editModel: ['$stateParams', 'Table', function($stateParams, Table) {
+                    return Table.getItem('user' , $stateParams.userId);
+                }]
+            }
+        })
         // building
         .state('app.building', {
             url: 'building',

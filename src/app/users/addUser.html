@@ -2,77 +2,228 @@
 <div ng-init="vm.activate('user')">
 
     <div class="content-header">
-        <h1 class="text-right">
-        اضافه کردن کاربر جدید
-        </h1>
-
+        <div class="text-right col-md-6 pull-right">
+            <h1>
+               کاربر جدید
+            </h1>
+        </div>
+        <div class="col-md-6 pull-left">
+            <a ui-sref="app.user.list">
+                لیست
+                <span class="fa fa-list"></span>
+            </a>
+        </div>
     </div>
 
     <div id="content-body">
 
-        <div class="row">
+        <form ng-submit="vm.submit()" name="vm.appForm" novalidate>
+            <div class="row">
 
-            <div class="col-sm-6 col-sm-3 col-sm-offset-3">
-                <form name="vm.appForm" ng-submit="vm.submit()" >
-                    <div class="form-group">
-                        <label class="right">
-    نام
-                        </label>
-                        <input ng-model="vm.fields.number" type="number" class="form-control" >
-                    </div>
-                    <div class="form-group">
-                        <label class="right">
-کد پرسنلی
-                        </label>
-                        <input ng-model="vm.fields.name" type="text" class="form-control" >
-                    </div>
-                    <div class="form-group">
-                        <label class="right">
-سمت
-                        </label>
-                        <select g-model="vm.fields.name" class="form-control" dir="rtl">
-                            <option value="1">
-                                دانشجو
-                            </option>
-                            <option value="2">
-                                استاد
-                            </option>
-                            <option value="3">
-                                کارمند
-                            </option>
-                            <option value="4">
-                                مدیر
-                            </option>
-                            <option value="5">
-                                اپراتور
-                            </option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="right">
-                            نام کاربری
-                        </label>
-                        <input ng-model="vm.fields.roof" type="number" class="form-control ">
-                    </div>
-                    <div class="form-group">
-                        <label class="right">
-رمز عبور
-                        </label>
-                        <input ng-model="vm.fields.roof" type="number" class="form-control ">
-                    </div>
-                    <button type="submit" class="btn btn-success right">
-                        ذخیره
-                    </button>
-                </form>
+                <div class="col-sm-6 col-sm-3 col-sm-offset-3">
+                    <form name="vm.appForm" ng-submit="vm.submit()" >
+
+                        <div ng-class="{'has-error': vm.appForm['name'].$touched && vm.appForm['name'].$invalid}"
+                             class="form-group">
+                            <label class="right">
+                                <sup>*</sup>نام
+
+                            </label>
+                            <input ng-required="true"
+                                    name="name"
+                                    class="form-control text-right"
+                                    ng-model="vm.model.name"
+                            >
+                            <span class="help-block text-right"
+                                  ng-show="vm.appForm['name'].$touched && vm.appForm['name'].$invalid">
+            نام مورد نیاز است
+                            </span>
+                        </div>
+
+                        <div ng-class="{'has-error': vm.appForm['job'].$touched && vm.appForm['job'].$invalid}"
+                             class="form-group">
+                            <label class="right">
+                                <sup>*</sup>سمت
+
+                            </label>
+                            <select ng-required="true"
+                                    name="job"
+                                    class="form-control text-right"
+                                    ng-model="vm.model.job"
+                                    ng-options="userJobItem.id as userJobItem.name for userJobItem in [{id:1 , name : 'استاد'},{id:2 , name : 'مدیریت'},{id:3 , name : 'پرسنل'},{id:4 , name : 'دانشجو'},]"
+                            ></select>
+                            <span class="help-block text-right"
+                                  ng-show="vm.appForm['job'].$touched && vm.appForm['job'].$invalid">
+            سمت مورد نیاز است
+                            </span>
+                        </div>
+
+                        <div ng-class="{'has-error': vm.appForm['idCode'].$touched && vm.appForm['idCode'].$invalid}"
+                             class="form-group">
+                            <label class="right">
+                                <sup>*</sup>
+                                شماره
+                                <span ng-if="vm.model.job==1 || vm.model.job==2 || vm.model.job==3 ">پرسنلی</span>
+                                <span ng-if="vm.model.job==4">دانشجویی</span>
+
+                            </label>
+                            <input ng-required="true"
+                                   name="idCode"
+                                   class="form-control text-right"
+                                   ng-model="vm.model.idCode"
+                            >
+                            <span class="help-block text-right"
+                                  ng-show="vm.appForm['idCode'].$touched && vm.appForm['idCode'].$invalid">
+          شماره مورد نیاز است
+                            </span>
+                        </div>
+
+                        <div ng-class="{'has-error': vm.appForm['username'].$touched && vm.appForm['username'].$invalid}"
+                             class="form-group">
+                            <label class="right">
+                                <sup>*</sup>نام کاربری
+
+                            </label>
+                            <input ng-required="true"
+                                   name="username"
+                                   class="form-control text-right"
+                                   ng-model="vm.model.username"
+                            >
+                            <span class="help-block text-right"
+                                  ng-show="vm.appForm['username'].$touched && vm.appForm['username'].$invalid">
+          نام کاربری مورد نیاز است
+                            </span>
+                        </div>
+
+                        <div ng-class="{'has-error': vm.appForm['password'].$touched && vm.appForm['password'].$invalid}"
+                             class="form-group">
+                            <label class="right">
+                                <sup>*</sup>رمز عبور
+
+                            </label>
+                            <input ng-required="true"
+                                   name="password"
+                                   type="password"
+                                   class="form-control text-right"
+                                   ng-model="vm.model.password"
+                            >
+                            <span class="help-block text-right"
+                                  ng-show="vm.appForm['password'].$touched && vm.appForm['password'].$invalid">
+       رمز عبور مورد نیاز است
+                            </span>
+                        </div>
+
+                        <!--<div ng-class="{'has-error': vm.appForm['name'].$touched && vm.appForm['name'].$invalid}" class="form-group">-->
+                            <!--<label class="right">-->
+                                <!--<sup>*</sup>نام اتاق-->
+                            <!--</label>-->
+                            <!--<input name="name" ng-required="true" ng-model="vm.model.name" type="text" class="form-control" >-->
+                            <!--<span class="help-block text-right"-->
+                                  <!--ng-show="vm.appForm['name'].$touched && vm.appForm['name'].$invalid">-->
+            <!--نام اتاق مورد نیاز است-->
+            <!--</span>-->
+                        <!--</div>-->
+
+                        <button class="btn btn-success"
+                                type="submit"
+                                ng-disabled="vm.appForm.$invalid">
+                            <span ng-if="vm.isEdit">
+                                ویرایش
+                            </span>
+                            <span ng-if="!vm.isEdit">
+                                ایجاد
+                            </span>
+                        </button>
+
+                        <!--<button ng-disabled="vm.appForm.$invalid"  type="submit" class="btn btn-success right left">ثبت</button>-->
+                    </form>
+
+                </div>
+
 
             </div>
-
-
-        </div>
-
+        </form>
 
     </div>
 
 
 
 </div>
+
+<!--<div ng-init="vm.activate('user')">-->
+
+    <!--<div class="content-header">-->
+        <!--<h1 class="text-right">-->
+        <!--اضافه کردن کاربر جدید-->
+        <!--</h1>-->
+
+    <!--</div>-->
+
+    <!--<div id="content-body">-->
+
+        <!--<div class="row">-->
+
+            <!--<div class="col-sm-6 col-sm-3 col-sm-offset-3">-->
+                <!--<form name="vm.appForm" ng-submit="vm.submit()" >-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="right">-->
+    <!--نام-->
+                        <!--</label>-->
+                        <!--<input ng-model="vm.fields.number" type="number" class="form-control" >-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="right">-->
+<!--کد پرسنلی-->
+                        <!--</label>-->
+                        <!--<input ng-model="vm.fields.name" type="text" class="form-control" >-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="right">-->
+<!--سمت-->
+                        <!--</label>-->
+                        <!--<select g-model="vm.fields.name" class="form-control" dir="rtl">-->
+                            <!--<option value="1">-->
+                                <!--دانشجو-->
+                            <!--</option>-->
+                            <!--<option value="2">-->
+                                <!--استاد-->
+                            <!--</option>-->
+                            <!--<option value="3">-->
+                                <!--کارمند-->
+                            <!--</option>-->
+                            <!--<option value="4">-->
+                                <!--مدیر-->
+                            <!--</option>-->
+                            <!--<option value="5">-->
+                                <!--اپراتور-->
+                            <!--</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="right">-->
+                            <!--نام کاربری-->
+                        <!--</label>-->
+                        <!--<input ng-model="vm.fields.roof" type="number" class="form-control ">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="right">-->
+<!--رمز عبور-->
+                        <!--</label>-->
+                        <!--<input ng-model="vm.fields.roof" type="number" class="form-control ">-->
+                    <!--</div>-->
+                    <!--<button type="submit" class="btn btn-success right">-->
+                        <!--ذخیره-->
+                    <!--</button>-->
+                <!--</form>-->
+
+            <!--</div>-->
+
+
+        <!--</div>-->
+
+
+    <!--</div>-->
+
+
+
+<!--</div>-->
