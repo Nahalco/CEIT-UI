@@ -15,10 +15,14 @@
                        name="_password"
                        ng-model="vm.user._password">
 
-                <button class=""
+                <div style="font-size: 10px">
+برای ورود کلیک کنید
+                </div>
+                <button ui-sref="app.dashboard"
+                        class=""
                         type="submit"
                         ng-disabled="vm.isLoading">
-                    Login
+                    ورود
                     <span ng-show="vm.isLoading">...</span>
                 </button>
 

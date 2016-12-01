@@ -34,13 +34,15 @@ blockquote:before, blockquote:after, q:before, q:after {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-
+  position: fixed;
+  width: 100%;
+  height: 100%;
   .page-container {
     padding-top: 120px;
   }
 
   .form-container{
-    width: 600px;
+    width: 644px;
     padding: 25px;
     border-radius: 30px;
     margin: auto;

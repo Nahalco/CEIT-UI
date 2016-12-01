@@ -217,7 +217,7 @@ body {
 }
 .sp-container .sp-content .header .sp-navbar {
   background: #f9fcfd;
-  padding: 18px 0;
+  padding: 5px 0;
   border-bottom: 1px solid #e7e7e7;
 }
 .sp-container .sp-content .header .sp-navbar .nav button {
@@ -655,6 +655,10 @@ body {
    -moz-box-sizing: border-box;
    box-sizing: border-box;
    border-bottom: 1px solid #ccc;
+
+   h1{
+     font-size:20px;
+   }
  }
 // .content-header h1 {
 //   margin: 0;

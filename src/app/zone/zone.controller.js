@@ -41,7 +41,6 @@
               }else{
                   defaultZone()
               }
-
           });
 
           vm.lamps = [{"id" : "2:3",'title': 'l1', "type" : "lamp"},

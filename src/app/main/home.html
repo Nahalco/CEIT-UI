@@ -9,13 +9,52 @@
     <div id="content-body">
         <div class="row">
 
-            <div class="col-sm-12">
+            <div class="col-sm-3">
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="data3" chart-labels="labels3">
+                </canvas>
+            </div>
 
-                <h1>
+            <div class="col-sm-3">
+                <canvas id="radar" class="chart chart-radar"
+                        chart-data="data4" chart-options="options4" chart-labels="labels4">
+                </canvas>
+            </div>
 
-                </h1>
+            <div class="col-sm-3">
+                <canvas id="polar-area" class="chart chart-polar-area"
+                        chart-data="data5" chart-labels="labels5" chart-options="options5">
+                </canvas>
+            </div>
+
+            <div class="col-sm-3">
+                <canvas id="pie" class="chart chart-pie"
+                        chart-data="data6" chart-labels="labels6" chart-options="options6">
+                </canvas>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="col-sm-6">
+
+                <canvas id="line" class="chart chart-line"
+                        chart-data="data1"
+                        chart-labels="labels1"
+                        chart-series="series1"
+                        chart-options="options1"
+                        chart-dataset-override="datasetOverride1"
+                        chart-click="onClick1">
+                </canvas>
 
             </div>
+
+            <div class="col-sm-6">
+                <canvas id="bar" class="chart chart-bar"
+                        chart-data="data2" chart-labels="labels2"> chart-series="series">
+                </canvas>
+            </div>
+
+
+
 
         </div>
 

@@ -18,7 +18,8 @@
             "restangular",
             "frapontillo.bootstrap-switch",
             'smart-table',
-            'ngDragDrop'
+            'ngDragDrop',
+        'chart.js'
     ]);
 
 })();
