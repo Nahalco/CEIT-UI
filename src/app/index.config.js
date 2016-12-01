@@ -28,7 +28,7 @@
     RestangularProvider.setDefaultHeaders({
       'Accept': '*/*',
       'Content-Type': 'application/json',
-      'X-Accept-Version': '1.0.0'
+      //'X-Accept-Version': '1.0.0'
     });
 
 

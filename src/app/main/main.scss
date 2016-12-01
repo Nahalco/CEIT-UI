@@ -5,6 +5,9 @@
  .form-control{
     text-align: right;
  }
+ select{
+   direction: rtl;
+ }
  .list-table{
    width: 90%;
    margin: auto;
@@ -647,7 +650,7 @@ body {
    float: right;
    width: 100%;
    margin-bottom: 15px;
-   padding: 15px;
+   padding: 5px 15px;
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
    box-sizing: border-box;
