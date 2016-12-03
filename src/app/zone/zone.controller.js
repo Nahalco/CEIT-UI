@@ -32,14 +32,16 @@
 
           Table.getItems('room/' + vm.model.room, []).then(function(res) {
               console.log("get room " , res)
-              if(res.zones != undefined ){
+              if(res.zones != undefined  && res.zones[0] != undefined){
                   if(res.zones[0].data != undefined){
                       vm.zones = res.zones[0].data;
                   }else{
-                      defaultZone()
+                      defaultZone();
+                      console.log("1")
                   }
               }else{
                   defaultZone()
+                  console.log("2")
               }
           });
 
