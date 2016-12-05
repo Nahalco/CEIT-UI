@@ -158,6 +158,19 @@
             controller: 'ZoneController',
             controllerAs: 'vm'
         })
+        // plugin
+        .state('app.plugin', {
+            url: 'plugin',
+            template: '<div ui-view></div>',
+            abstract: true,
+        })
+        // zone
+        .state('app.plugin.set', {
+            url: '/set',
+            templateUrl: 'app/plugin/plugin.html',
+            controller: 'PluginController',
+            controllerAs: 'vm'
+        })
       ;
 
     //$urlRouterProvider.otherwise('/index');

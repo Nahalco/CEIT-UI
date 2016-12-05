@@ -65,3 +65,19 @@
   text-align:center;
   border: 1px solid white;
 }
+
+
+
+.slot{
+  width: 40px;
+  height:40px;
+  margin: 2px;
+  border: 1px solid black;
+  display: inline-block;
+  opacity: .5;
+  background-color: black;
+}
+
+.slot.red{
+  background-color: red;
+}

@@ -1,0 +1,87 @@
+<div class="panel panel-default">
+
+    <div class="panel-body" id="top-dashboard">
+        افزونه
+    </div>
+
+</div>
+
+<div  class="row" id="zone">
+
+  <div class="col-md-12" id="plugin-holder">
+
+      <div class="item-holder">
+
+           <div
+                          ng-repeat="item in list5"
+                          data-drop="true" ng-model='list5'
+                          jqyoui-droppable="{index: {{$index}}}"
+                  >
+                      <div class="item "
+                           ng-class="{'item-notify' : item.type=='notify', 'item-filter':item.type=='filter'  }"
+                              data-drag="{{item.drag}}"
+                              data-jqyoui-options="{revert: 'invalid'}"
+                              ng-model="list5"
+                              jqyoui-draggable="{index: {{$index}},placeholder:'keep',deepCopy:true}"
+                              ng-hide="!item.title">
+                          {{item.title}}
+                      </div>
+                  </div>
+          <div class="clearfix"></div>
+      </div>
+
+
+      <div class='content'>
+          <div class="row-fluid">
+              <ul class="thumbnails">
+
+                  <li class="span3" style='margin-left:10px;'>
+                      <div class="thumbnail" data-drop="true" ng-model='vm.list1' jqyoui-droppable="{multiple:true}">
+                          <div class="caption">
+                              <div class="item"
+                                   ng-class="{'item-notify' : item.type=='notify', 'item-filter':item.type=='filter'  }"
+                                   ng-repeat="item in vm.list1"
+                                   ng-show="item.title"
+                                   data-drag="true"
+                                   data-jqyoui-options="{revert: 'invalid'}"
+                                   ng-model="vm.list1"
+                                   jqyoui-draggable="{index: {{$index}},animate:true}"
+                                   uib-popover-template="'filterTemplate.html'"
+                              >
+                                  {{item.title}}
+
+                                  <script ng-if="item.type=='notify'" type="text/ng-template" id="filterTemplate.html">
+                                      <div>
+                                          In Notify Template
+                                      </div>
+                                      <div class="form-group">
+                                          <label></label>
+                                          <input type="text" placeholder="عنوان هشدار" class="form-control">
+                                      </div>
+                                  </script>
+
+                                  <script ng-if="item.type=='filter'" type="text/ng-template" id="filterTemplate.html">
+                                      <div>
+                                          In Filter Template
+                                      </div>
+                                      <div class="form-group">
+                                          <label></label>
+                                          <input type="text" placeholder="عنوان فیلتر" class="form-control">
+                                      </div>
+                                  </script>
+
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+
+              </ul>
+          </div>
+      </div>
+
+      {{vm.list1 | json}}
+
+  </div>
+
+
+</div>

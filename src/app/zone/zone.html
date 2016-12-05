@@ -50,6 +50,93 @@
     </div>
   </div>
 
+    <!--<style>-->
+        <!--.thumbnail { height: 100px !important; }-->
+        <!--.btn-droppable { width: 180px; height: 30px; padding-left: 4px; }-->
+        <!--.btn-draggable { width: 160px; }-->
+
+    <!--</style>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>-->
+    <!--<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.min.css" rel="stylesheet" type="text/css" />-->
+    <!--<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.min.css" rel="stylesheet">-->
+
+    <!--<div class="col-md-12">dfd-->
+        <!--<div class='row contentWrapper ng-cloak'>-->
+            <!--<div class='content'>-->
+                <!--<div class="row-fluid">-->
+                    <!--<ul class="thumbnails">-->
+                        <!--<li class="span3" style='margin-left:10px;' ng-repeat="image in images">-->
+                            <!--<div class="thumbnail">-->
+                                <!--<div class="caption">-->
+
+                                    <!--<p>-->
+                                    <!--<div-->
+                                        <!--class="btn btn-droppable"-->
+                                         <!--data-drop="true"-->
+                                        <!--ng-model='list1'-->
+                                        <!--jqyoui-droppable="{index: {{$index}}, onDrop:'dropCallback',onOver: 'overCallback', onOut: 'outCallback'}"-->
+                                <!--&gt;-->
+                                    <!--<div-->
+                                            <!--class="btn btn-info btn-draggable"-->
+                                            <!--ng-show="list1[$index].title"-->
+                                            <!--data-drag="{{list1[$index].drag}}"-->
+                                            <!--data-jqyoui-options="{revert: 'invalid'}"-->
+                                            <!--ng-model="list1"-->
+                                            <!--jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}">-->
+                                        <!--{{list1[$index].title}}-->
+                                    <!--</div>-->
+                                <!--</div></p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="navbar-inner">-->
+            <!--<div class="container form-inline" style="text-align: center;">-->
+                <!--<div class="btn btn-droppable" ng-repeat="item in list2" data-drop="true" ng-model='list2' jqyoui-droppable="{index: {{$index}}}">-->
+                    <!--<div-->
+                            <!--class="btn btn-info btn-draggable"-->
+                            <!--data-drag="{{item.drag}}"-->
+                            <!--data-jqyoui-options="{revert: 'invalid'}"-->
+                            <!--ng-model="list2"-->
+                            <!--jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true, onStart:'startCallback(item, $index)', onStop: 'stopCallback', onDrag: 'dragCallback'}"-->
+                            <!--ng-hide="!item.title">{{item.title}}-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="col-md-12">-->
+        <!--<div id="position-panel">-->
+            <!--<div ng-repeat="r in [1] ">-->
+                <!--<div class="slot circle"-->
+                     <!--ng-repeat="c  in [] | range:vm.position.height"-->
+                     <!--data-drag="true"-->
+                     <!--ng-model="list4"-->
+                     <!--data-jqyoui-options="{revert: 'invalid'}"-->
+                     <!--jqyoui-draggable="{index: {{$index}}}"-->
+                <!--&gt;{{$index}}</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div id="ss">-->
+            <!--<div ng-repeat="r in [1] ">-->
+                <!--<div-->
+                    <!--class="slot red circle"-->
+                    <!--ng-repeat="c  in [] | range:vm.position.height"-->
+                    <!--data-drop="true"-->
+                    <!--ng-model='list5'-->
+                    <!--jqyoui-droppable="{index: {{$index}}}"-->
+                <!--&gt;{{$index}}</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
     <div ng-show="vm.isReady" class="col-md-12">
         <div class="row">
             <div class="col-md-4 pull-right text-right">
@@ -77,10 +164,44 @@
             </div>
             <div class="col-md-8 pull-right text-right">
 
+                <div class="row">
+                    <div class="col-xs-2 pull-right">
+                        <label class="right">
+                            عرض
+                        </label>
+                        <input
+                                ng-init="vm.position.width=10"
+                                ng-model="vm.position.width"
+                                class="form-control"
+                                type="number"
+                        >
+                        </input>
+                    </div>
+
+                    <div class="col-xs-2 pull-right">
+                        <label class="right">
+                            ارتفاع
+                        </label>
+                        <input
+                                ng-init="vm.position.height=4"
+                                ng-model="vm.position.height"
+                                class="form-control"
+                                type="number"
+                        >
+                        </input>
+                    </div>
+                </div>
+
+
+
                 <div ng-repeat="zone in vm.zones" class="zone-item">
                     <div class="zone-title">{{zone.title}}</div>
                     <div class="zone-panel">
-                        <ol data-drop="true" data-drag="true"  ng-model='zone.list'  jqyoui-droppable="{multiple:true}">
+                        <ol
+                                data-drop="true"
+                                data-drag="true"
+                                ng-model='zone.list'
+                                jqyoui-droppable="{multiple:true}">
                             <div
                                     class=" drag-item"
                                     ng-repeat="item in zone.list track by $index"

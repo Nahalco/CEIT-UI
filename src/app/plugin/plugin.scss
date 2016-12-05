@@ -1,0 +1,42 @@
+.item{
+  float: right;
+  width: 100%;
+  max-width: 100px;
+  cursor: move;
+  background-position: center top 58%;
+  background-color: rgba(255,255,255,.4);
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  line-height: 32px;
+  text-align: center;
+  margin-top: 0;
+  border: 1px solid #ddd;
+  border-bottom: 2px solid #428bca;
+  border-radius: 3px;
+
+  background-repeat: no-repeat;
+  background-size: 40px;
+  height: 100px;
+}
+.item.item-filter{
+  background-image: url("../../assets/icons/filter.png");;
+}
+.item.item-notify{
+  background-image: url("../../assets/icons/notifications.png");;
+}
+#plugin-holder{
+  .item-holder{
+
+
+  }
+
+  .plugin-panel{
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    background-color: lightgrey;
+  }
+
+}
