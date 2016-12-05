@@ -5,7 +5,7 @@
         .module('clientUi')
         .controller('IndexController', IndexController);
 
-    function IndexController($scope , $http , mySocket) {
+    function IndexController($scope , $http , Table) {
         var vm = this;
 
         console.log("index controller")
@@ -26,16 +26,20 @@
             vm.gas = states.gas;
         })
 
-        $http({
-            method: 'GET',
-            url: 'http://192.168.128.90:8080/discovery',
-
-        }).success(function(data){
-            console.log("discovery success");
-            loadThingFromDiscovry(data)
-        }).error(function(data){
-            console.log("discovery error" , data);
+        Table.getItems('discovery', []).then(function(res) {
+            console.log("discovery" , res)
         });
+
+        // $http({
+        //     method: 'GET',
+        //     url: 'http://192.168.128.90:8080/discovery',
+        //
+        // }).success(function(data){
+        //     console.log("discovery success");
+        //     loadThingFromDiscovry(data)
+        // }).error(function(data){
+        //     console.log("discovery error" , data);
+        // });
 
         vm.onLampChange = function (rpiKey,thing) {
             console.log("on change",rpiKey,thing)

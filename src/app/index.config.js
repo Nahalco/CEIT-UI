@@ -20,7 +20,7 @@
 
 
     //set restangular config
-    RestangularProvider.setBaseUrl('http://localhost:1337');
+    RestangularProvider.setBaseUrl('http://192.168.128.90:1337/');
     RestangularProvider.setDefaultHttpFields({
       withCredentials: false,
       cache: false

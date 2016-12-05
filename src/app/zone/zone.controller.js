@@ -20,10 +20,10 @@
           $scope.list1.push({});
       });
       $scope.list2 = [
-          { 'title': 'KnockoutJS', 'drag': true },
-          { 'title': 'EmberJS', 'drag': true },
-          { 'title': 'BackboneJS', 'drag': true },
-          { 'title': 'AngularJS', 'drag': true }
+          { 'title': '1', 'drag': true },
+          { 'title': '2', 'drag': true },
+          { 'title': '3', 'drag': true },
+          { 'title': '4', 'drag': true }
       ];
 
       $scope.startCallback = function(event, ui, title) {
