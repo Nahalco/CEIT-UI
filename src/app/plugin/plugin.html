@@ -8,7 +8,7 @@
 
 <div  class="row" id="zone">
 
-  <div class="col-md-12" id="plugin-holder">
+  <!--<div class="col-md-12" id="plugin-holder">
 
       <div class="item-holder">
 
@@ -81,7 +81,38 @@
 
       {{vm.list1 | json}}
 
-  </div>
+  </div>-->
+    <div class="col-md-12" id="plugin-holder">
+        <!--<div class="item" ng-class="{'item-add':true}" ng-click="addState()" style="float: left">
+            State
+        </div>
+        <div class="box" ng-hide="!vm.showState">
+            <p>State: <input type="text" ng-model="state"></p>
+            <p>Agent ID: <input type="text" ng-model="agent_id"></p>
+            <p>type: <select ng-model="selectType" ng-options="x for x in names"></select></p>
+        </div>
+        <div class="box" ng-hide="!vm.showState" ng-if="selectType == 'filter'">
+            <p>Conditions</p>
+            <p>Type: <input type="text" ng-model="condition"> </p>
+            <p>Device ID: <input type="text" ng-model="states"></p>
+            <p>type: <select ng-model="action" ng-options="x for x in actions"></select></p>
+        </div>
+        <div class="box" ng-hide="!vm.showState" ng-if="selectType == 'notify'">
+            <p>Actions</p>
+            <p>Type: <input type="text" ng-model="condition"> </p>
+            <p>Device ID: <input type="text" ng-model="states"></p>
+            <p>type: <select ng-model="action" ng-options="x for x in actions"></select></p>
+        </div>-->
+        <div style="padding: 15px;">
+            <p ng-click="addState()">New State +</p>
+            <div class="state-box" ng-repeat = "state in states">
+                <p>State: <input type="text" ng-model="state_name"></p>
+                <p>Agent ID: <input type="text" ng-model="state_agent_id"></p>
+                <p>type: <select ng-model="state_type" ng-options="x for x in stateTypes"></select></p>
+                <span ng-click="stateAccept(state,state_name,state_agent_id,state_type)">OK</span> <span>Cancel</span>
+            </div>
+        </div>
+    </div>
 
 
 </div>
