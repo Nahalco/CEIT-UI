@@ -15,6 +15,8 @@
       {"item":"on","values":["true","false"]},
       {"item":"off","values":["true","false"]},
     ]
+
+    $scope.myjson = ''
     /*vm.zones = [];
 
 
@@ -29,7 +31,7 @@
 
 
     $scope.addState = function(){
-      var txt = '{"name":"","agent_id":"","type":"","conditions":[],"actions":[], "nextStep":""}'
+      var txt = '{"name":"","agent_id":"","type":"","conditions":[],"actions":[], "nextStep":"" , "else":{"nextStep":""}}'
       var x = JSON.parse(txt)
       $scope.states.push(x)
       //console.log( $scope.states)
@@ -103,6 +105,38 @@
       //console.log(cond)
       act['device_id'] = deleteIndex(act['device_id'],act['device_id'].indexOf(device))
       //console.log(state['conditions'])
+    }
+
+    $scope.convertToVJson = function(){
+      var vjs = '{ "root":"1", "tree": { '
+      for (var state in $scope.states){
+        var x = jQuery.extend(true, {}, $scope.states[state]);
+        delete x['name']
+        if(x['type'] == 'notif'){
+          delete x['conditions']
+          delete x['else']
+          delete x['agent_id']
+        }
+        if(x['type'] == 'filter'){
+          delete x['actions']
+          delete x['nextStep']
+        }
+        var tmp= {}
+
+        tmp[$scope.states[state]['name']] = x
+        var tmp2 = JSON.stringify(tmp)
+        if(tmp2.length > 0){
+          tmp2 = tmp2.substring(1,tmp2.length -1 )
+        }
+        vjs = vjs + tmp2 + " ,"
+      }
+      if(vjs.slice(-1) == ","){
+        vjs = vjs.substring(0,vjs.length - 1)
+      }
+      vjs = vjs + ' }}'
+      $scope.myjson = vjs
+      console.log(vjs)
+      console.log(JSON.parse(vjs))
     }
   }
 })();

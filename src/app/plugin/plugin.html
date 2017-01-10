@@ -106,7 +106,7 @@
         <div style="padding: 15px;">
             <p ng-click="addState()">New State +</p>
             <form name="sup-form" ng-submit="check(state)"
-                  class="box state-box"  ng-repeat = "state in states">
+                  class="box state-box"  ng-repeat = "state in states track by $index">
                 <p>State:
                     <input type="text" ng-model="state['name']"  required>
                 </p>
@@ -122,14 +122,14 @@
 
                 <p ng-click="addCond(state)" ng-if="state['type'] == 'filter'">New Condition +</p>
                 <div  class="box condition-box" ng-if="state['type'] == 'filter'"
-                     ng-model="state['conditions']" ng-repeat="cond in state['conditions']">
+                     ng-model="state['conditions']" ng-repeat="cond in state['conditions'] track by $index">
 
                     <p>Type: <input type="text" ng-model="cond['type']" required></p>
                     <p>Device ID: <input type="text" ng-model="cond['device_id']" required></p>
                     <p>Action: <input type="text" ng-model="cond['action']['nextStep']" required></p>
                     <p ng-click="addSt(cond)" >New State +</p>
                     <div class="box st-box"
-                         ng-model=" cond['states']" ng-repeat="st in cond['states']">
+                         ng-model=" cond['states']" ng-repeat="st in cond['states'] track by $index">
 
                         <p>Type: <input type="text" ng-model="st['type']" required></p>
                         <p>value: <input type="text" ng-model="st['device_id']" required></p>
@@ -147,9 +147,11 @@
                     </button>
                 </div>
 
+                <p ng-if="state['type'] == 'filter'" >Else: <input type="text" ng-model="state['else']['nextStep']" required></p>
+                <p ng-if="state['type'] == 'notif'" >Next Step: <input type="text" ng-model="state['nextStep']" required></p>
                 <p ng-click="addAction(state)" ng-if="state['type'] == 'notif'">New Action +</p>
                 <div  class="box action-box" ng-if="state['type'] == 'notif'"
-                      ng-model="state['actions']" ng-repeat="act in state['actions']">
+                      ng-model="state['actions']" ng-repeat="act in state['actions'] track by $index">
 
                     <p>Type: <input type="text" ng-model="act['type']" required></p>
                     <p>Agent ID: <input type="text" ng-model="act['agent_id']" required></p>
@@ -168,7 +170,7 @@
                     </p>
 
                     <p ng-click="addDevice(act)">New Device +</p>
-                    <div ng-model="act['device_id']" ng-repeat="device in act['device_id']">
+                    <div ng-model="act['device_id']" ng-repeat="device in act['device_id'] track by $index">
                         <span>Device ID: <input type="text"
                                                 ng-blur=" act['device_id'][$index] = device"
                                                 ng-model="device" required></span>
@@ -192,6 +194,13 @@
                 </button>
 
             </form>
+            <button ng-click="convertToVJson()">
+                convert
+            </button>
+            <div class="box">
+                {{myjson}}
+            </div>
+
         </div>
     </div>
 
