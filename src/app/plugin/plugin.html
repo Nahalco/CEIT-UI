@@ -147,7 +147,42 @@
                     </button>
                 </div>
 
-                <p ng-click="" ng-if="state['type'] == 'notif'">New Action +</p>
+                <p ng-click="addAction(state)" ng-if="state['type'] == 'notif'">New Action +</p>
+                <div  class="box action-box" ng-if="state['type'] == 'notif'"
+                      ng-model="state['actions']" ng-repeat="act in state['actions']">
+
+                    <p>Type: <input type="text" ng-model="act['type']" required></p>
+                    <p>Agent ID: <input type="text" ng-model="act['agent_id']" required></p>
+                    <p>
+                        Settings:
+                        <select ng-model="settings_item" ng-options="x.item for x in notifSettings"
+                                ng-change="fillSettings(act,settings_item.item)" required>
+                            <option></option>
+                        </select>
+
+                        <select ng-if="settings_item.item != undefined"
+                                ng-model="act['settings'][settings_item.item]"
+                                ng-options="x for x in settings_item.values" required>
+                            <option></option>
+                        </select>
+                    </p>
+
+                    <p ng-click="addDevice(act)">New Device +</p>
+                    <div ng-model="act['device_id']" ng-repeat="device in act['device_id']">
+                        <span>Device ID: <input type="text"
+                                                ng-blur=" act['device_id'][$index] = device"
+                                                ng-model="device" required></span>
+
+                        <button type="button" ng-click="deleteDevice(act,device)">
+                            Delete
+                        </button>
+
+                    </div>
+
+                    <button type="button" ng-click="deleteAct(state,act)">
+                        Delete
+                    </button>
+                </div>
 
                 <button type="submit" >
                     Check
