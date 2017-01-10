@@ -50,8 +50,13 @@
 
 }
 
-.state-box{
-  border: solid 2px red;
+.box{
   margin: 5px;
   padding: 15px 5px;
+}
+.state-box{
+  border: solid 2px red;
+}
+.condition-box{
+  border: solid 2px blue;
 }

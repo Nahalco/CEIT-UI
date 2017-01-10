@@ -10,7 +10,7 @@
     var vm = this;
 
     $scope.states = [];
-    $scope.stateTypes = ["filter", "notify"];
+    $scope.stateTypes = ["filter", "notif"];
     /*vm.zones = [];
 
 
@@ -23,20 +23,32 @@
     ];*/
     //var vm = this;
 
-    $scope.addState = function(){
-      var x = {}
-      $scope.states.push(x)
-    }
-    $scope.stateAccept = function(state,state_name,state_agent_id,state_type){
-      for(var key in state){
-        if(key != state_name){
-          delete state[key];
+    $scope.addCond = function(state){
+      var txt = '{"type":"","device_id":"","states":[],"actions":""}'
+      var x = JSON.parse(txt)
+      for(var key in state) {
+        if(state[key].conditions != undefined){
+          state[key].conditions.push(x)
         }
       }
-      state[state_name] = {agent_id:state_agent_id,type:state_type,conditions:[]}
-      //console.log(state)
-      //console.log('++++++++')
+    }
+    $scope.addState = function(){
+      var txt = '{"name":"","agent_id":"","type":"","conditions":[],"stat":"0"}'
+      var x = JSON.parse(txt)
+      $scope.states.push(x)
+      //console.log( $scope.states)
+    }
+    /*$scope.stateAccept = function(state){
       console.log($scope.states)
+      //state = {name:state_name,agent_id:state_agent_id,type:state_type,conditions:[],stat:1}
+      console.log(state)
+      console.log('++++++++')
+      console.log($scope.states)
+    }*/
+    $scope.prevClick = function(state){
+      console.log(state)
+      state['stat'] = 0
+      console.log(state)
     }
   }
 })();

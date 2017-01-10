@@ -105,12 +105,39 @@
         </div>-->
         <div style="padding: 15px;">
             <p ng-click="addState()">New State +</p>
-            <div class="state-box" ng-repeat = "state in states">
-                <p>State: <input type="text" ng-model="state_name"></p>
-                <p>Agent ID: <input type="text" ng-model="state_agent_id"></p>
-                <p>type: <select ng-model="state_type" ng-options="x for x in stateTypes"></select></p>
-                <span ng-click="stateAccept(state,state_name,state_agent_id,state_type)">OK</span> <span>Cancel</span>
-            </div>
+            <form name="sup-form" ng-submit="state['stat'] = 1;"
+                  class="box state-box"  ng-repeat = "state in states">
+                <p>State:
+                    <input ng-hide="state['stat'] > 0" type="text" ng-model="state['name']"  required>
+                    <span ng-hide="state['stat']== 0" >{{state['name']}}</span>
+                </p>
+                <p>
+                    Agent ID:
+                    <input ng-hide="state['stat'] > 0" type="text" ng-model="state['agent_id']" required>
+                    <span ng-hide="state['stat'] == 0" >{{state['agent_id']}}</span>
+                </p>
+                <p>
+                    type:
+                    <select ng-hide="state['stat'] > 0" ng-model="state['type']" ng-options="x for x in stateTypes" required></select>
+                    <span ng-hide="state['stat'] == 0" >{{state['type']}}</span>
+                </p>
+
+                <p ng-click="addCond(state)" ng-if="state['type'] == 'filter' && state['stat'] > 0">New Condition +</p>
+                <div  class="box condition-box" ng-if="state['type'] == 'filter'"
+                     ng-model="state['conditions']" ng-repeat="cond in state['conditions']">
+
+                </div>
+
+                <p ng-click="" ng-if="state_type == 'notif'">New Action +</p>
+
+                <button type="submit" ng-hide="state['stat'] > 0">
+                    Next
+                </button>
+                <button type="button"  ng-hide="state['stat'] == 0" ng-click="prevClick(state)">
+                    Perv
+                </button>
+
+            </form>
         </div>
     </div>
 
