@@ -9,6 +9,8 @@
   function PluginController($scope , $http, Table,$sce) {
     var vm = this;
 
+
+
     $scope.states = [];
     $scope.stateTypes = ["filter", "notif"];
     $scope.notifSettings=[
@@ -136,7 +138,28 @@
       vjs = vjs + ' }}'
       $scope.myjson = vjs
       console.log(vjs)
-      console.log(JSON.parse(vjs))
+
+      var message = JSON.parse(vjs);
+
+      console.log(message)
+
+
+      var url = "http://192.168.128.90:8081/senario/new";
+
+      $http({
+        url: url,
+        method: "POST",
+        dataType: "json",
+        data:  message
+      }).then(function(response) {
+        // success
+        console.log(response)
+      }, function(response) { // optional
+        // failed
+        console.log(response)
+        console.log('error')
+      });
+
     }
   }
 })();
