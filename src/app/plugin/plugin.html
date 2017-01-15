@@ -121,7 +121,11 @@
                     <p>Type: <span ng-bind="cond['type']" ></span></p>
                     <p>
                         Action:
-                        <input type="text" ng-model="cond['action']['nextStep']" required>
+                        <select ng-model="actionNext"
+                                ng-change="cond['action']['nextStep'] = actionNext.name"
+                                ng-options="value.name for value in states" required>
+                            <option></option>
+                        </select>
                     </p>
 
                     <!-- new St -->
@@ -151,10 +155,21 @@
                     </button>
                 </div>
 
-                <p ng-if="state['type'] == 'filter'" >Else: <input type="text" ng-model="state['else']['nextStep']" required></p>
+                <p ng-if="state['type'] == 'filter'" >
+                    Else:
+                    <select ng-model="elseNext"
+                            ng-change="state['else']['nextStep'] = elseNext.name"
+                            ng-options="value.name for value in states" required>
+                        <option></option>
+                    </select>
+                </p>
                 <p ng-if="state['type'] == 'notif'" >
                     Next Step:
-                    <input type="text" ng-model="state['nextStep']" required>
+                    <select ng-model="notifNext"
+                            ng-change="state['nextStep'] = notifNext.name"
+                            ng-options="value.name for value in states" required>
+                        <option></option>
+                    </select>
                 </p>
 
                 <!-- new Action -->
