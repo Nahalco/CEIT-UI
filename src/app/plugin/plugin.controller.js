@@ -166,8 +166,7 @@
 
       console.log(message)
 
-      /*
-      var url = "http://192.168.128.90:8081/senario/new";
+      var url = "http://iot.ceit.aut.ac.ir:58910/senario/new";
 
 
       $http({
@@ -183,7 +182,6 @@
         console.log(response)
         console.log('error')
       });
-      */
 
     }
   }

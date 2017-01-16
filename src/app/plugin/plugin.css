@@ -1,0 +1,60 @@
+.item {
+  float: right;
+  width: 100%;
+  max-width: 100px;
+  background-position: center top 58%;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  line-height: 32px;
+  text-align: center;
+  margin-top: 0;
+  border: 1px solid #ddd;
+  border-bottom: 2px solid #428bca;
+  border-radius: 3px;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  height: 100px; }
+
+.item.item-filter {
+  background-image: url("../../assets/icons/filter.png"); }
+
+.item.item-notify {
+  background-image: url("../../assets/icons/notifications.png"); }
+
+.scale-anime {
+  transition: all .2s ease-in-out; }
+
+.scale-anime:hover {
+  -ms-transform: scale(1.1);
+  /* IE 9 */
+  -webkit-transform: scale(1.1);
+  /* Chrome, Safari, Opera */
+  transform: scale(1.1);
+  animation: 5s ease; }
+
+#plugin-holder .plugin-panel {
+  width: 90%;
+  height: 300px;
+  margin: auto;
+  background-color: lightgrey; }
+
+.box {
+  margin: 5px;
+  padding: 15px 5px; }
+
+.state-box {
+  border: solid 2px red; }
+
+.condition-box {
+  border: solid 2px blue; }
+
+.st-box {
+  border: solid 2px purple; }
+
+.action-box {
+  border: solid 2px green; }
+
+/*# sourceMappingURL=plugin.css.map */
