@@ -7,6 +7,7 @@ Development:
 ===========
     npm install
     bower install
+    bower install font-awesome
  
 Serving for develop:
 -------------
