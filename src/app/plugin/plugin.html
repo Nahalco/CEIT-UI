@@ -172,17 +172,28 @@
                     </select>
                 </p>
 
-                <!-- new Action -->
-                <p ng-click="addAction(state)" ng-if="state['type'] == 'notif'">New Action +</p>
+                <!-- new Device -->
+                <p ng-click="addAction(state)" ng-if="state['type'] == 'notif'">New Device +</p>
                 <div  class="box action-box" ng-if="state['type'] == 'notif'"
                       ng-model="state['actions']" ng-repeat="act in state['actions'] track by $index"
                       ng-init="act['agent_id'] = state['agent_id']">
 
-                    <p>Type: <input type="text"  ng-model="act['type']" required></p>
+                    <p>
+                        Device ID:
+                        <select ng-model="actionDevice"
+                            ng-change="act['device_id'] = [actionDevice.device_id]; act['type'] = actionDevice.type;"
+                            ng-options="value as value.device_id for  (key , value) in agents[state['agent_id']] |
+                            filter:{action_type: state['type']}" required>
+                            <option></option>
+                        </select>
+                    </p>
+
+                    <p>Type: <span ng-bind="act['type']"></span></p>
                     <p>
                         Settings:
-                        <select ng-model="settings_item" ng-options="x.item for x in notifSettings"
-                                ng-change="fillSettings(act,settings_item.item)" required>
+                        <select ng-model="settings_item"
+                                ng-options="value as value.item for  (key , value) in actionDevice.settings"
+                                ng-change="fillSettings(act,settings_item)" required>
                             <option></option>
                         </select>
 
@@ -192,19 +203,6 @@
                             <option></option>
                         </select>
                     </p>
-
-                    <!-- new Device -->
-                    <p ng-click="addDevice(act)">New Device +</p>
-                    <div ng-model="act['device_id']" ng-repeat="device in act['device_id'] track by $index">
-                        <span>Device ID: <input type="text"
-                                                ng-blur=" act['device_id'][$index] = device"
-                                                ng-model="device" required></span>
-
-                        <button type="button" ng-click="deleteDevice(act,device)">
-                            Delete
-                        </button>
-
-                    </div>
 
                     <button type="button" ng-click="deleteAct(state,act)">
                         Delete
