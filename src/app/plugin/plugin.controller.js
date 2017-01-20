@@ -13,10 +13,10 @@
     // offline
     $scope.states = [];
     $scope.stateTypes = ["filter", "notif"];
-    $scope.notifSettings=[
+    /*$scope.notifSettings=[
       {"item":"on","values":["true","false"]},
       {"item":"off","values":["true","false"]},
-    ]
+    ]*/
 
     $scope.myjson = ''
 
@@ -104,6 +104,7 @@
     }
 
     $scope.fillSettings = function(act, name){
+      console.log(name)
       for(var key in act['settings']){
         if(key != name){
           delete act['settings'][key];
