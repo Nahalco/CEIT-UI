@@ -85,7 +85,7 @@
     <div class="col-md-12" id="plugin-holder">
         <!-- new State -->
         <div style="padding: 15px;">
-            <p ng-click="addState()">New State +</p>
+            <p ng-click="addState()" class="grow right-empty">New State +</p>
             <form name="sup-form" ng-submit="check(state)"
                   class="box state-box"  ng-repeat = "state in states track by $index">
                 <p>State:
@@ -105,7 +105,7 @@
                 </p>
 
                 <!-- new condition -->
-                <p ng-click="addCond(state)" ng-if="state['type'] == 'filter'">New Condition +</p>
+                <p ng-click="addCond(state)" ng-if="state['type'] == 'filter'" class="grow right-empty">New Condition +</p>
                 <div  class="box condition-box" ng-if="state['type'] == 'filter'"
                      ng-model="state['conditions']" ng-repeat="cond in state['conditions'] track by $index">
 
@@ -129,7 +129,7 @@
                     </p>
 
                     <!-- new St -->
-                    <p ng-click="addSt(cond)" >New State +</p>
+                    <p ng-click="addSt(cond)" class="grow right-empty">New State +</p>
                     <div class="box st-box"
                          ng-model=" cond['states']" ng-repeat="st in cond['states'] track by $index">
 
@@ -144,15 +144,13 @@
                         <p>Op: <input type="text" ng-model="st['op']" required></p>
                         <p>Logic: <input type="text" ng-model="st['logic']"></p>
 
-                        <button type="button" ng-click="deleteSt(cond,st)">
-                            Delete
-                        </button>
+                        <i  class="fa fa-trash trash" ng-click="deleteSt(cond,st)" aria-hidden="true">
+                        </i>
 
                     </div>
-
-                    <button type="button" ng-click="deleteCond(state,cond)">
-                        Delete
-                    </button>
+                    <br/>
+                    <i class="fa fa-trash trash" ng-click="deleteCond(state,cond)">
+                    </i>
                 </div>
 
                 <p ng-if="state['type'] == 'filter'" >
@@ -173,7 +171,7 @@
                 </p>
 
                 <!-- new Device -->
-                <p ng-click="addAction(state)" ng-if="state['type'] == 'notif'">New Device +</p>
+                <p ng-click="addAction(state)" ng-if="state['type'] == 'notif'" class="grow right-empty">New Device +</p>
                 <div  class="box action-box" ng-if="state['type'] == 'notif'"
                       ng-model="state['actions']" ng-repeat="act in state['actions'] track by $index"
                       ng-init="act['agent_id'] = state['agent_id']">
@@ -203,23 +201,21 @@
                             <option></option>
                         </select>
                     </p>
-
-                    <button type="button" ng-click="deleteAct(state,act)">
-                        Delete
-                    </button>
+                    <i class="fa fa-trash trash" ng-click="deleteAct(state,act)">
+                    </i>
                 </div>
 
-                <button type="submit" >
+                <!--<button type="submit" >
                     Check
-                </button>
-                <button type="button" ng-click="deleteState(state)">
-                    Delete
-                </button>
+                </button>-->
+                <br/>
+                <i class="fa fa-trash trash" ng-click="deleteState(state)">
+                </i>
 
             </form>
-            <button ng-click="convertToVJson()">
-                convert
-            </button>
+            <br/>
+            <i class="fa fa-send send" ng-click="convertToVJson()" >
+            </i>
             <div class="box">
                 {{myjson}}
             </div>

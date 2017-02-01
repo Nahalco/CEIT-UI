@@ -167,7 +167,7 @@
 
       console.log(message)
 
-      var url = "http://iot.ceit.aut.ac.ir:58910/senario/new";
+     /* var url = "http://iot.ceit.aut.ac.ir:58910/senario/new";
 
 
       $http({
@@ -182,7 +182,7 @@
         // failed
         console.log(response)
         console.log('error')
-      });
+      });*/
 
     }
   }

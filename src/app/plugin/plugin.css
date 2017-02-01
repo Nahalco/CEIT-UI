@@ -57,4 +57,32 @@
 .action-box {
   border: solid 2px green; }
 
+.grow {
+  transition: all .2s ease-in-out; }
+
+.grow:hover {
+  transform: scale(1.1); }
+
+.right-empty {
+  display: inline-block;
+  clear: both; }
+
+.trash {
+  transition: all .3s ease-in-out;
+  color: slategray;
+  font-size: 24px; }
+
+.trash:hover {
+  color: #ff2a2e;
+  font-size: 28px; }
+
+.send {
+  transition: all .3s ease-in-out;
+  color: #1f253d;
+  font-size: 32px; }
+
+.send:hover {
+  color: #0099e5;
+  font-size: 36px; }
+
 /*# sourceMappingURL=plugin.css.map */
