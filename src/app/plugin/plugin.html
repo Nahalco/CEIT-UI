@@ -122,7 +122,7 @@
                     <p>
                         Action:
                         <select ng-model="actionNext"
-                                ng-change="cond['action']['nextStep'] = actionNext.name"
+                                ng-change="cond['action']['nextStep'] = actionNext.mindex"
                                 ng-options="value.name for value in states" required>
                             <option></option>
                         </select>
@@ -156,7 +156,7 @@
                 <p ng-if="state['type'] == 'filter'" >
                     Else:
                     <select ng-model="elseNext"
-                            ng-change="state['else']['nextStep'] = elseNext.name"
+                            ng-change="state['else']['nextStep'] = elseNext.mindex"
                             ng-options="value.name for value in states" required>
                         <option></option>
                     </select>
@@ -164,7 +164,7 @@
                 <p ng-if="state['type'] == 'notif'" >
                     Next Step:
                     <select ng-model="notifNext"
-                            ng-change="state['nextStep'] = notifNext.name"
+                            ng-change="state['nextStep'] = notifNext.mindex"
                             ng-options="value.name for value in states" required>
                         <option></option>
                     </select>
