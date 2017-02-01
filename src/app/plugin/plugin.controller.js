@@ -155,6 +155,7 @@
             cond['action']['nextStep'] = $scope.getStateFromIndex(cond['action']['nextStep'])
           }
         }
+        delete x['mindex']
         var tmp= {}
 
         tmp[$scope.states[state]['name']] = x
