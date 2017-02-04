@@ -205,6 +205,29 @@
                     </i>
                 </div>
 
+                <div ng-if="state['type'] == 'timer'">
+                    <p>
+                        Interval Time:
+                        <input type="text" ng-model="state['time']"  required>
+                    </p>
+                    <p>
+                        Action:
+                        <select ng-model="timerAction"
+                                ng-change="state['action'] = timerAction.mindex"
+                                ng-options="value.name for value in states" required>
+                            <option></option>
+                        </select>
+                    </p>
+                    <p>
+                        NextStep:
+                        <select ng-model="timerNext"
+                                ng-change="state['nextStep'] = timerNext.mindex"
+                                ng-options="value.name for value in states" required>
+                            <option></option>
+                        </select>
+                    </p>
+                </div>
+
                 <!--<button type="submit" >
                     Check
                 </button>-->

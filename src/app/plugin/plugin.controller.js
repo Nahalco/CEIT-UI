@@ -13,7 +13,7 @@
     // offline
     var stateIndex = 0;
     $scope.states = [];
-    $scope.stateTypes = ["filter", "notif"];
+    $scope.stateTypes = ["filter", "notif", "timer"];
     /*$scope.notifSettings=[
       {"item":"on","values":["true","false"]},
       {"item":"off","values":["true","false"]},
@@ -53,7 +53,8 @@
 
 
     $scope.addState = function(){
-      var txt = '{"mindex": '+stateIndex+', "name":"","agent_id":"","type":"","conditions":[],"actions":[], "nextStep":"" , "else":{"nextStep":""}}'
+      var txt = '{"mindex": '+stateIndex+', "name":"","agent_id":"","type":"","conditions":[],"actions":[], "nextStep":"" ,' +
+          ' "else":{"nextStep":""}, "time":"", "action": ""}'
       stateIndex++;
       var x = JSON.parse(txt)
       $scope.states.push(x)
@@ -145,6 +146,8 @@
           delete x['else']
           delete x['agent_id']
           x['nextStep'] = $scope.getStateFromIndex(x['nextStep'])
+          delete x['timer']
+          delete x['action']
         }
         if(x['type'] == 'filter'){
           delete x['actions']
@@ -154,6 +157,16 @@
             var cond = x['conditions'][k]
             cond['action']['nextStep'] = $scope.getStateFromIndex(cond['action']['nextStep'])
           }
+          delete x['timer']
+          delete x['action']
+        }
+        if(x['type'] == 'timer'){
+          delete x['conditions']
+          delete x['else']
+          delete x['agent_id']
+          delete x['actions']
+          x['nextStep'] = $scope.getStateFromIndex(x['nextStep'])
+          x['action'] = $scope.getStateFromIndex(x['action'])
         }
         delete x['mindex']
         var tmp= {}
@@ -197,13 +210,13 @@
     $scope.getStateFromIndex = function(index){
       for(var i = index; i >= 0 ; i--){
         if($scope.states[i] === undefined){
-          return null;
+          return '';
         }
         if($scope.states[i].mindex == index){
           return $scope.states[i].name;
         }
       }
-      return null;
+      return '';
     }
   }
 })();
