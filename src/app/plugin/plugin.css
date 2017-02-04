@@ -50,10 +50,10 @@
   background: #c9dcf1; }
 
 .condition-box {
-  background: #b7dbf1; }
+  background: #a6daf1; }
 
 .st-box {
-  background: #a6dcf1; }
+  background: #6edaf1; }
 
 .action-box {
   background: #62c8f1; }
@@ -85,5 +85,18 @@
 .send:hover {
   color: #0099e5;
   font-size: 36px; }
+
+input {
+  border: none;
+  padding: 2px 5px;
+  border-radius: 5px;
+  max-width: 300px; }
+
+select {
+  direction: ltr;
+  border-radius: 5px;
+  min-width: 100px;
+  text-align: center;
+  text-align-last: center; }
 
 /*# sourceMappingURL=plugin.css.map */

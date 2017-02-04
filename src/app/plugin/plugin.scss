@@ -61,11 +61,11 @@
 }
 .condition-box{
   //border: solid 2px blue;
-  background: #b7dbf1;
+  background: #a6daf1;
 }
 .st-box{
   //border: solid 2px purple;
-  background: #a6dcf1;
+  background: #6edaf1;
 }
 .action-box{
   //border: solid 2px green;
@@ -101,4 +101,19 @@
 .send:hover{
   color: #0099e5;
   font-size: 36px;
+}
+
+input{
+  border: none;
+  padding: 2px 5px;
+  border-radius: 5px;
+  max-width: 300px;
+}
+
+select{
+  direction: ltr;
+  border-radius: 5px;
+  min-width: 100px;
+  text-align: center;
+  text-align-last: center;
 }

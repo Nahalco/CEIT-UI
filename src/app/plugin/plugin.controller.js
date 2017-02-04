@@ -186,6 +186,7 @@
       console.log(vjs)
 
       var message = JSON.parse(vjs);
+      $scope.myjson = message
 
       console.log(message)
 
