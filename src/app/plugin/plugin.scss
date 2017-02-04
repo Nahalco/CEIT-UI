@@ -53,16 +53,67 @@
 .box{
   margin: 5px;
   padding: 15px 5px;
+  border-radius: 10px;
 }
 .state-box{
-  border: solid 2px red;
+  //border: solid 2px red;
+  background: #c9dcf1;
 }
 .condition-box{
-  border: solid 2px blue;
+  //border: solid 2px blue;
+  background: #a6daf1;
 }
 .st-box{
-  border: solid 2px purple;
+  //border: solid 2px purple;
+  background: #6edaf0;
 }
 .action-box{
-  border: solid 2px green;
+  //border: solid 2px green;
+  background: #62c8f1;
+}
+.grow {
+  transition: all .2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.1);
+}
+.right-empty{
+  display: inline-block;
+  clear: both;
+}
+
+.trash{
+  transition: all .3s ease-in-out;
+  color: slategray;
+  font-size: 24px;
+}
+.trash:hover{
+  color: #ff2a2e;
+  font-size: 28px;
+}
+
+.send{
+  transition: all .3s ease-in-out;
+  color:#1f253d;
+  font-size: 32px;
+}
+
+.send:hover{
+  color: #0099e5;
+  font-size: 36px;
+}
+
+input{
+  border: none;
+  padding: 2px 5px;
+  border-radius: 5px;
+  max-width: 300px;
+}
+
+select{
+  direction: ltr;
+  border-radius: 5px;
+  min-width: 100px;
+  text-align: center;
+  text-align-last: center;
 }
