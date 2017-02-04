@@ -146,7 +146,7 @@
           delete x['else']
           delete x['agent_id']
           x['nextStep'] = $scope.getStateFromIndex(x['nextStep'])
-          delete x['timer']
+          delete x['time']
           delete x['action']
         }
         if(x['type'] == 'filter'){
@@ -157,7 +157,7 @@
             var cond = x['conditions'][k]
             cond['action']['nextStep'] = $scope.getStateFromIndex(cond['action']['nextStep'])
           }
-          delete x['timer']
+          delete x['time']
           delete x['action']
         }
         if(x['type'] == 'timer'){

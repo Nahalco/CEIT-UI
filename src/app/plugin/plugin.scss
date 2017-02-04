@@ -53,18 +53,23 @@
 .box{
   margin: 5px;
   padding: 15px 5px;
+  border-radius: 10px;
 }
 .state-box{
-  border: solid 2px red;
+  //border: solid 2px red;
+  background: #c9dcf1;
 }
 .condition-box{
-  border: solid 2px blue;
+  //border: solid 2px blue;
+  background: #b7dbf1;
 }
 .st-box{
-  border: solid 2px purple;
+  //border: solid 2px purple;
+  background: #a6dcf1;
 }
 .action-box{
-  border: solid 2px green;
+  //border: solid 2px green;
+  background: #62c8f1;
 }
 .grow {
   transition: all .2s ease-in-out;
