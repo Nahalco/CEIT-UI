@@ -1,5 +1,5 @@
 {
-  "name": "clientUi",
+  "name": "client-ui",
   "version": "0.0.0",
   "dependencies": {
     "angular-animate": "~1.5.3",
@@ -19,15 +19,16 @@
     "animate.css": "~3.4.0",
     "angular": "~1.5.3",
     "angular-socket-io": "0.7.0",
-    "angular-ui-clock":"0.5.1",
-    "restangular":"1.5.2",
-    "angular-bootstrap-switch":"0.5.1",
+    "angular-ui-clock": "0.5.1",
+    "restangular": "1.5.2",
+    "angular-bootstrap-switch": "0.5.1",
     "angular-smart-table": "^2.1.8",
-    "angular-dragdrop" : "1.0.13",
-    "angular-chart.js" : "1.0.3"
+    "angular-dragdrop": "1.0.13",
+    "angular-chart.js": "1.0.3"
   },
   "devDependencies": {
-    "angular-mocks": "~1.5.3"
+    "angular-mocks": "~1.5.3",
+    "gojs": "^1.6.24"
   },
   "overrides": {
     "bootstrap-sass": {
