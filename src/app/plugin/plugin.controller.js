@@ -3,7 +3,22 @@
 
   angular
     .module('clientUi')
-    .controller('PluginController', PluginController);
+    .controller('PluginController', PluginController)
+      .filter('hasSomeValue', [function(){
+        return function(input, param) {
+          var ret = [];
+          if(!angular.isDefined(param)) param = true;
+
+          angular.forEach(input, function(v){
+            if(angular.isDefined(v.Message) && v.Message) {
+              v.Message = v.Message.replace(/^\s*/g, '');
+              ret.push(v);
+            }
+          });
+
+          return ret;
+        };
+      }]);
 
   /** @ngInject */
   function PluginController($scope , $http, Table,$sce) {
@@ -13,7 +28,41 @@
     // offline
     var stateIndex = 0;
     $scope.states = [];
-    $scope.stateTypes = ["filter", "notif", "timer"];
+    $scope.stateTypes = ["filter", "notif", "timer", "alert"];
+    $scope.alertTypes = [];
+
+    //Diagram
+    var $ = go.GraphObject.make;
+    var diagram =
+        $(go.Diagram, "scenarioDiagram",
+            {
+              initialContentAlignment: go.Spot.Center, // center Diagram contents
+              "undoManager.isEnabled": true, // enable Ctrl-Z to undo and Ctrl-Y to redo
+              layout: $(go.TreeLayout, // specify a Diagram.layout that arranges trees
+                  { angle: 90, layerSpacing: 35 })
+            });
+    diagram.nodeTemplate =
+        $(go.Node, "Auto",
+            { fromSpot: go.Spot.TopSide,    // coming out from top side -- BAD!
+              toSpot: go.Spot.RightSide },  // going into at right side -- BAD!
+            new go.Binding("location", "loc", go.Point.parse),
+            $(go.Shape, "Circle", { fill: "lightgray" }),
+            $(go.TextBlock, { margin: 5 },
+                new go.Binding("text", "key"))
+        );
+    diagram.linkTemplate =
+        $(go.Link,
+            { routing: go.Link.AvoidsNodes,
+              corner: 10 },                  // rounded corners
+            $(go.Shape),
+            $(go.Shape, { toArrow: "Standard" }),
+            $(go.TextBlock, { margin: 3 },
+                new go.Binding("text", "text"))
+        );
+    var nodeDataArray = [];
+    var linkDataArray = [];
+    diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+
     /*$scope.notifSettings=[
       {"item":"on","values":["true","false"]},
       {"item":"off","values":["true","false"]},
@@ -32,12 +81,15 @@
     }).then(function(response) {
       // success
       $scope.agents = response.data;
+      $scope.alertTypes = response.data.alerts.types;
       console.log($scope.agents)
+      console.log($scope.alertTypes)
     }, function(response) { // optional
       // failed
       console.log(response)
       console.log('error')
     });
+
 
     /*vm.zones = [];
 
@@ -54,7 +106,7 @@
 
     $scope.addState = function(){
       var txt = '{"mindex": '+stateIndex+', "name":"","agent_id":"","type":"","conditions":[],"actions":[], "nextStep":"" ,' +
-          ' "else":{"nextStep":""}, "time":"", "action": ""}'
+          ' "else":{"nextStep":""}, "time":"", "action": "", "alert_type": "", "to": "", "message": ""}'
       stateIndex++;
       var x = JSON.parse(txt)
       $scope.states.push(x)
@@ -168,6 +220,9 @@
           x['nextStep'] = $scope.getStateFromIndex(x['nextStep'])
           x['action'] = $scope.getStateFromIndex(x['action'])
         }
+        if(x['type'] == 'alert'){
+          x['nextStep'] = $scope.getStateFromIndex(x['nextStep'])
+        }
         delete x['mindex']
         var tmp= {}
 
@@ -206,10 +261,13 @@
         console.log(response)
         console.log('error')
       });*/
+      $scope.printScenario()
 
     }
+
     $scope.getStateFromIndex = function(index){
-      for(var i = index; i >= 0 ; i--){
+
+      for(var i = $scope.states.length - 1; i >= 0 ; i--){
         if($scope.states[i] === undefined){
           return '';
         }
@@ -219,8 +277,69 @@
       }
       return '';
     }
+
+    $scope.printScenario = function(){
+
+      diagram.clear()
+
+      for (var id in $scope.states){
+        var state = $scope.states[id]
+        var node = {
+          'key': state.name
+        }
+        diagram.model.addNodeData(node)
+        console.log(state)
+      }
+
+      for (var id2 in $scope.states){
+        var state = $scope.states[id2]
+
+        console.log('link')
+        console.log(state)
+        console.log(state['else'].nextStep)
+        if(state['else'].nextStep !== '' && state['type']=='filter'){
+          var link = {
+            'from': state.name,
+            'to': $scope.getStateFromIndex(state['else'].nextStep),
+            'text': 'else'
+          }
+          console.log(link)
+          diagram.model.addLinkData(link)
+        }
+        if(state.nextStep !== ''  && ( state['type']=='notif' || state['type']=='timer' || state['type']=='alert')){
+          var link = {
+            'from': state.name,
+            'to': $scope.getStateFromIndex(state.nextStep),
+            'text': 'go to'
+          }
+          diagram.model.addLinkData(link)
+        }
+        if(state['conditions'].length !== 0  && state['type']=='filter'){
+          for (var k in state['conditions']){
+            var cond = state['conditions'][k]
+            var link = {
+              'from': state.name,
+              'to': $scope.getStateFromIndex(cond['action'].nextStep),
+              'text': cond.device_id + " condition accept"
+            }
+            diagram.model.addLinkData(link)
+          }
+        }
+        if(state.action !== '' && state['type']=='timer'){
+          var link = {
+            'from': state.name,
+            'to': $scope.getStateFromIndex(state.action),
+            'text': 'times up'
+          }
+          diagram.model.addLinkData(link)
+        }
+      }
+      diagram.requestUpdate()
+    }
   }
 })();
+
+
 
 
 
@@ -230,4 +349,3 @@ function deleteIndex(array,index){
   }
   return (array.splice(0,index).concat(array.splice(index,array.length)))
 }
-
