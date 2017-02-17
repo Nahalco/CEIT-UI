@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/1.6.7/go-debug.js"></script>
 <div class="panel panel-default">
 
     <div class="panel-body" id="top-dashboard">
@@ -93,8 +94,9 @@
                 </p>
                 <p>
                     Agent ID:
-                    <select ng-model="state['agent_id']" ng-options="key as key for  (key , value) in agents" required>
+                    <select ng-model="state['agent_id']"  required>
                         <option></option>
+                        <option ng-repeat="(keylid , value) in agents" ng-if="keylid != 'alerts'" ng-value="keylid">{{keylid}}</option>
                     </select>
                 </p>
                 <p>
@@ -140,7 +142,7 @@
                                 <option></option>
                             </select>
                         </p>
-                        <p>value: <input type="text" ng-model="st['device_id']" required></p>
+                        <p>value: <input type="text" ng-model="st['value']" required></p>
                         <p>Op: <input type="text" ng-model="st['op']" required></p>
                         <p>Logic: <input type="text" ng-model="st['logic']"></p>
 
@@ -205,6 +207,7 @@
                     </i>
                 </div>
 
+                <!-- timer -->
                 <div ng-if="state['type'] == 'timer'">
                     <p>
                         Interval Time:
@@ -228,6 +231,47 @@
                     </p>
                 </div>
 
+                <!-- alert -->
+                <div ng-if="state['type'] == 'alert'">
+                    <p>
+                        Alert Type:
+                        <select ng-model="state['alert_type']"
+                                ng-options="value for value in alertTypes" required>
+                            <option></option>
+                        </select>
+                    </p>
+                    <p>
+                        To:
+                        <span ng-if = "state['alert_type'] != 'telegram'">
+                            <input list='toUsers' type="text" ng-model="state['to']"  required>
+                            <datalist id="toUsers">
+                                <option ng-if="state['alert_type'] == 'sms'" ng-repeat="item in agents.alerts.users" value="{{item['phone']}}"></option>
+                                <option ng-if="state['alert_type'] == 'mail'" ng-repeat="item in agents.alerts.users" value="{{item['email']}}"></option>
+                            </datalist>
+                        </span>
+                        <select ng-if ="state['alert_type'] == 'telegram'"
+                                ng-model="state['to']"
+                                ng-options="value.telegram_id as value.telegram_id + ' ( ' + value.name + ' )' for (key,value) in agents.alerts.users">
+                            <option></option>
+                        </select>
+                    </p>
+
+                    <p style="position: relative">
+                        <span style="float: left; top: 5px;">Message:</span>
+
+                        <textarea ng-model="state['message']" style="border-radius: 10px; min-width: 300px; min-height: 140px"/>
+                    </p>
+
+                    <p>
+                        NextStep:
+                        <select ng-model="alertNext"
+                                ng-change="state['nextStep'] = alertNext.mindex"
+                                ng-options="value.name for value in states" required>
+                            <option></option>
+                        </select>
+                    </p>
+                </div>
+
                 <!--<button type="submit" >
                     Check
                 </button>-->
@@ -241,6 +285,10 @@
             </i>
             <div class="box">
                 {{myjson}}
+            </div>
+
+            <div id="scenarioDiagram" style="width:100%; height:500px; background-color: #DAE4E4;">
+
             </div>
 
         </div>
