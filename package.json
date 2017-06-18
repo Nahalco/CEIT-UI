@@ -1,0 +1,24 @@
+{
+  "name": "aolab-ui",
+  "version": "2.0.0",
+  "description": "Web application for managing CEIT department of AUT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aolab/Aolab-UI.git"
+  },
+  "keywords": [
+    "iot",
+    "webapp",
+    "user-interface"
+  ],
+  "author": "Parham Alvani <parham.alvani@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Aolab/Aolab-UI/issues"
+  },
+  "homepage": "https://github.com/Aolab/Aolab-UI#readme"
+}
