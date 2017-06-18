@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/Aolab/Aolab-UI#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   }
 }
