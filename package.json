@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Aolab/Aolab-UI/issues"
   },
-  "homepage": "https://github.com/Aolab/Aolab-UI#readme"
+  "homepage": "https://github.com/Aolab/Aolab-UI#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
 }
