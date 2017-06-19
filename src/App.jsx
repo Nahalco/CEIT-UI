@@ -11,7 +11,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="bg-faded container-fluid row">
+        <div className="bg-warning container-fluid row">
           <a href="http://aut.ac.ir/" className="col-2 text-center">
             <img src="img/aut.png" width="50" height="50" className="align-top" alt="AUT Logo" />
           </a>
@@ -31,6 +31,13 @@ class App extends React.Component {
               <Multisensor />
             </div>
           </div>
+        </div>
+        <div className="bg-warning fixed-bottom container-fluid row">
+          <address>
+            Aolab, Computer &amp; Information Technology Engineering Department,
+            Amirkabir University of Technology,
+            Tehran, Iran.
+          </address>
         </div>
       </div>
     );
