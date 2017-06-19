@@ -10,26 +10,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="col">
-        <div className="row">
-          <h1 className="display-2 col text-center">
-            Meeting Room 
-            <small className="text-muted h4">{new Date().getFullYear()}</small>
-          </h1>
+      <div>
+        <div className="bg-faded container-fluid row">
+          <a href="http://aut.ac.ir/" className="col-2 text-center">
+            <img src="img/aut.png" width="50" height="50" className="align-top" alt="AUT Logo" />
+          </a>
+          <h1 className="col-8 text-center mt-2">Meeting Room</h1>
+          <a href="http://ceit.aut.ac.ir/" className="col-2 text-center">
+            <img src="img/ceit.png" width="50" height="50" className="align-top" alt="CEIT Logo" />
+          </a>
         </div>
-        <div className="row">
-          <div className="col-2">
-            <img className="row img-thumbnail border-0" src="img/aut.png" alt="AUT Logo" />
-            <img className="row img-thumbnail border-0" src="img/ceit.png" alt="CEIT Logo" />
-            <img className="row img-thumbnail border-0" src="img/aolab.png" alt="Aolab Logo" />
-          </div>
-          <div className="col-8">
-            <div className="card-group">
-              <Mode title="Presentation" />
+        <div className="container mt-2">
+          <div className="row">
+            <div className="col-8">
+              <div className="card-group">
+                <Mode title="Presentation" />
+              </div>
             </div>
-          </div>
-          <div className="col-2">
-            <Multisensor />
+            <div className="col-4">
+              <Multisensor />
+            </div>
           </div>
         </div>
       </div>
