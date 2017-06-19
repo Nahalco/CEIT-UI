@@ -2,6 +2,8 @@ import React from 'react';
 import Multisensor from './Multisensor.jsx';
 import Mode from './Mode.jsx';
 
+import {version} from '../package.json';
+
 
 class App extends React.Component {
   constructor() {
@@ -33,11 +35,18 @@ class App extends React.Component {
           </div>
         </div>
         <div className="bg-warning fixed-bottom container-fluid row">
-          <address>
+          <address className="col-3">
             Aolab, Computer &amp; Information Technology Engineering Department,
             Amirkabir University of Technology,
             Tehran, Iran.
           </address>
+          <div className="col-7">
+          </div>
+          <div className="col-2">
+            <p className="text-center">
+              Aolab-UI, {version}, &copy;{new Date().getFullYear()}
+            </p>
+          </div>
         </div>
       </div>
     );
