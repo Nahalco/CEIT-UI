@@ -1,4 +1,5 @@
 import React from 'react';
+import Multisensor from './Multisensor.jsx';
 
 
 class App extends React.Component {
@@ -8,6 +9,13 @@ class App extends React.Component {
 
   render() {
     return (
+      <div classNmae="row">
+        <div className="row">
+          <h1 className="display-2">
+            Meeting Room 
+            <small className="text-muted h4">{new Date().getFullYear()}</small>
+          </h1>
+        </div>
       <div className="row">
         <div className="col">
           <img className="row img-thumbnail border-0" src="img/aut.png" alt="AUT Logo" />
@@ -15,18 +23,14 @@ class App extends React.Component {
           <img className="row img-thumbnail border-0" src="img/aolab.png" alt="Aolab Logo" />
         </div>
         <div className="col-6">
-          <div className="mx-auto row">
-            <h1 className="display-2">
-              Meeting Room 
-              <small className="text-muted h4">{new Date().getFullYear()}</small>
-            </h1>
-          </div>
           <div>
           </div>
         </div>
         <div className="col">
+          <Multisensor />
         </div>
       </div>
+    </div>
     );
   }
 }
