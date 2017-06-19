@@ -10,9 +10,9 @@ class App extends React.Component {
     return (
       <div className="row">
         <div className="col">
-          <img className="row img-thumbnail" src="" alt="AUT Logo" />
-          <img className="row img-thumbnail" src="" alt="CEIT Logo" />
-          <img className="row img-thumbnail" src="" alt="Aolab Logo" />
+          <img className="row img-thumbnail border-0" src="img/aut.png" alt="AUT Logo" />
+          <img className="row img-thumbnail border-0" src="img/ceit.png" alt="CEIT Logo" />
+          <img className="row img-thumbnail border-0" src="img/aolab.png" alt="Aolab Logo" />
         </div>
         <div className="col-6">
           <div className="mx-auto row">
