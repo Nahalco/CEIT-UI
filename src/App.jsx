@@ -12,12 +12,10 @@ class App extends React.Component {
     return (
       <div className="col">
         <div className="row">
-          <p className="col text-center">
-            <h1 className="display-2">
-              Meeting Room 
-              <small className="text-muted h4">{new Date().getFullYear()}</small>
-            </h1>
-          </p>
+          <h1 className="display-2 col text-center">
+            Meeting Room 
+            <small className="text-muted h4">{new Date().getFullYear()}</small>
+          </h1>
         </div>
         <div className="row">
           <div className="col-2">
