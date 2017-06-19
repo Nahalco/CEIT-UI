@@ -1,13 +1,26 @@
 import React from 'react';
 import Multisensor from './Multisensor.jsx';
 import Mode from './Mode.jsx';
+import {I1820Client} from '@i1820/api';
 
 import {version} from '../package.json';
 
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.client = new I1820Client('http://iot.ceit.aut.ac.ir:58902');
+    this.state = {
+      agents: []
+    };
+  }
+
+  componentDidMount() {
+    this.client.discovery().then((agents) => {
+      this.setState({
+        agents
+      });
+    });
   }
 
   render() {
