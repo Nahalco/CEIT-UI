@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Aolab/Aolab-UI#readme",
   "dependencies": {
+    "@i1820/api": "^1.0.0",
     "express": "^4.15.3"
   },
   "devDependencies": {
