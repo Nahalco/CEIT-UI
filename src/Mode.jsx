@@ -16,7 +16,9 @@ class Mode extends React.Component {
     return (
       <div className="card">
         <div className="card-block">
-          <h4 className="card-title">{this.thing.id}</h4>
+          <h4 className="card-title">
+            {this.thing.id.charAt(0).toUpperCase() + this.thing.id.slice(1)} Mode
+          </h4>
           <div className="btn-group" data-toggle="buttons">
             <label className="btn btn-lg btn-primary">
               <input type="checkbox" autoComplete="off" onClick={() => this.turn(true)} /> On
