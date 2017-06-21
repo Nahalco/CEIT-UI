@@ -26,34 +26,36 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="bg-warning container-fluid row">
+        <div className="bg-info container-fluid row">
           <a href="http://aut.ac.ir/" className="col-2 text-center">
-            <img src="img/aut.png" width="50" height="50" className="align-top" alt="AUT Logo" />
+            <img src="img/aut.png" width="120" height="120" className="align-top" alt="AUT Logo" />
           </a>
-          <h1 className="col-8 text-center mt-2">Meeting Room</h1>
+          <h1 className="col-8 text-center mt-2 display-1">Meeting Room</h1>
           <a href="http://ceit.aut.ac.ir/" className="col-2 text-center">
-            <img src="img/ceit.png" width="50" height="50" className="align-top" alt="CEIT Logo" />
+            <img src="img/ceit.png" width="120" height="120" className="align-top" alt="CEIT Logo" />
           </a>
         </div>
         <div className="container mt-2">
           <div className="row">
             <div className="col-8">
-              <div className="card-group">
-                <Mode title="Presentation" />
+              <h2 className="text-center">Scenarios</h2>
+              <div className="card-deck">
               </div>
             </div>
             <div className="col-4">
-              <Multisensor />
             </div>
           </div>
         </div>
-        <div className="bg-warning fixed-bottom container-fluid row">
-          <address className="col-3">
-            Aolab, Computer &amp; Information Technology Engineering Department,
-            Amirkabir University of Technology,
-            Tehran, Iran.
-          </address>
+        <div className="bg-info fixed-bottom container-fluid row">
+          <div className="col-3">
+            <p className="text-center">
+              Aolab
+            </p>
+          </div>
           <div className="col-7">
+            <p className="text-center">
+              CEIT Department, Amirkabir University of Technology.
+            </p>
           </div>
           <div className="col-2">
             <p className="text-center">
