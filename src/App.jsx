@@ -24,6 +24,19 @@ class App extends React.Component {
   }
 
   render() {
+    let multisensor = (
+      <div></div>
+    );
+    let modes = [];
+    if (this.state.agents.length > 0) {
+      multisensor = (
+        <Multisensor thing={this.state.agents[0].getThingsByType('multisensor')[0]} />
+      )
+
+      this.state.agents[0].getThingsByType('mode').forEach((mode, index) => {
+        modes.push((<Mode thing={mode} key={index} />))
+      });
+    }
     return (
       <div>
         <div className="bg-info container-fluid row">
@@ -40,9 +53,11 @@ class App extends React.Component {
             <div className="col-8">
               <h2 className="text-center">Scenarios</h2>
               <div className="card-deck">
+                {modes}
               </div>
             </div>
             <div className="col-4">
+              {multisensor}
             </div>
           </div>
         </div>
