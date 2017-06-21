@@ -51,7 +51,7 @@ class App extends React.Component {
         <div className="container mt-2">
           <div className="row">
             <div className="col-8">
-              <h2 className="text-center">Scenarios</h2>
+              <h2>Scenarios</h2>
               <div className="card-deck">
                 {modes}
               </div>
