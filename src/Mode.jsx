@@ -3,18 +3,19 @@ import React from 'react';
 class Mode extends React.Component {
   constructor(props) {
     super(props);
+    this.thing = props.thing;
   }
 
   render() {
     return (
       <div className="card">
         <div className="card-block">
-          <h4 className="card-title">{this.props.title}</h4>
+          <h4 className="card-title">{this.thing.id}</h4>
           <div className="btn-group" data-toggle="buttons">
-            <label className="btn btn-primary active">
-              <input type="checkbox" defaultChecked autoComplete="off" /> On
+            <label className="btn btn-lg btn-primary">
+              <input type="checkbox" autoComplete="off" /> On
             </label>
-            <label className="btn btn-primary">
+            <label className="btn btn-lg btn-primary">
               <input type="checkbox" autoComplete="off" /> Off
             </label>
           </div>
