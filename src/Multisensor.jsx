@@ -26,10 +26,12 @@ class Multisensor extends React.Component {
   render() {
     return (
       <div>
-        <h6>{this.thing.id} @ {this.thing.agentId}</h6>
-        <Gauge value={this.state.temperature}/>
-        <Gauge value={this.state.humidity}/>
-        <Gauge value={this.state.light / 10}/>
+        <h4 className="text-center">Temperature</h4>
+        <Gauge value={this.state.temperature} width="300" height="150"/>
+        <h4 className="text-center">Humidity</h4>
+        <Gauge value={this.state.humidity} width="300" height="150"/>
+        <h4 className="text-center">Light</h4>
+        <Gauge value={this.state.light / 10} width="300" height="150"/>
       </div>
     );
   }
