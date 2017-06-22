@@ -1,6 +1,6 @@
 import React from 'react';
-import Gauge from 'react-gauge';
 
+import {LinearGauge} from 'canvas-gauges';
 
 class Multisensor extends React.Component {
   constructor(props) {
@@ -14,24 +14,44 @@ class Multisensor extends React.Component {
   }
 
   componentDidMount() {
-    this.thing.log.then((result) => {
-      this.setState({
-        temperature: result['temperature']['value'],
-        humidity: result['humidity']['value'],
-        light: result['light']['value']
+    setTimeout(() => {
+      this.thing.log.then((result) => {
+        this.setState({
+          temperature: result['temperature']['value'],
+          humidity: result['humidity']['value'],
+          light: result['light']['value']
+        });
       });
-    });
+    }, 1);
   }
 
   render() {
+    let gauge = document.createElement('canvas');
+    new LinearGauge({
+      renderTo: gauge,
+      width: 100,
+      height: 300,
+      value: this.state.temperature
+    })
     return (
       <div>
-        <h4 className="text-center">Temperature</h4>
-        <Gauge value={this.state.temperature} width="300" height="150"/>
+        <canvas data-type="radial-gauge"
+          data-width="400"
+          data-height="400"
+          data-units="°C"
+          data-title="Temperature"
+          data-value={this.state.temperature}
+          data-min-value="0"
+          data-max-value="50"
+          data-major-ticks="0,5,15,20,25,30,35,40,45,50"
+          data-minor-ticks="2"
+          data-stroke-ticks="false"
+          data-animated-value="true"
+        ></canvas>
         <h4 className="text-center">Humidity</h4>
-        <Gauge value={this.state.humidity} width="300" height="150"/>
+        {gauge}
         <h4 className="text-center">Light</h4>
-        <Gauge value={this.state.light / 10} width="300" height="150"/>
+        <div id="LightGauge"></div>
       </div>
     );
   }
