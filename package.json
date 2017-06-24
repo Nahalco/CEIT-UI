@@ -22,7 +22,9 @@
     "url": "https://github.com/Aolab/Aolab-UI/issues"
   },
   "homepage": "https://github.com/Aolab/Aolab-UI#readme",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.15.3"
+  },
   "devDependencies": {
     "@i1820/api": "^2.1.0",
     "babel-core": "^6.25.0",
