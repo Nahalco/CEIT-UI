@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {LinearGauge} from 'canvas-gauges';
+import {RadialGauge} from 'react-canvas-gauges';
 
 class Multisensor extends React.Component {
   constructor(props) {
@@ -14,44 +14,36 @@ class Multisensor extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.thing.log.then((result) => {
-        this.setState({
-          temperature: result['temperature']['value'],
-          humidity: result['humidity']['value'],
-          light: result['light']['value']
-        });
+    this.thing.log.then((result) => {
+      this.setState({
+        temperature: result['temperature']['value'],
+        humidity: result['humidity']['value'],
+        light: result['light']['value']
       });
-    }, 1);
+    });
   }
 
   render() {
-    let gauge = document.createElement('canvas');
-    new LinearGauge({
-      renderTo: gauge,
-      width: 100,
-      height: 300,
-      value: this.state.temperature
-    })
     return (
       <div>
-        <canvas data-type="radial-gauge"
-          data-width="400"
-          data-height="400"
-          data-units="°C"
-          data-title="Temperature"
-          data-value={this.state.temperature}
-          data-min-value="0"
-          data-max-value="50"
-          data-major-ticks="0,5,15,20,25,30,35,40,45,50"
-          data-minor-ticks="2"
-          data-stroke-ticks="false"
-          data-animated-value="true"
-        ></canvas>
-        <h4 className="text-center">Humidity</h4>
-        {gauge}
-        <h4 className="text-center">Light</h4>
-        <div id="LightGauge"></div>
+        <RadialGauge
+          units='°C'
+          title='Temperature'
+          value={this.state.temperature}
+          minValue={0}
+          maxValue={50}
+          majorTicks={['0', '5', '15', '20', '25', '30', '35', '40', '45', '50']}
+          minorTicks={2}
+        ></RadialGauge>
+        <RadialGauge
+          units='%'
+          title='Humidity'
+          value={this.state.humidity}
+          minValue={0}
+          maxValue={100}
+          majorTicks={['0', '10', '20', '30', '40', '50', '60', '70', '80', '90', '100']}
+          minorTicks={5}
+        ></RadialGauge>
       </div>
     );
   }
