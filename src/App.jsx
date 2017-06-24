@@ -1,6 +1,7 @@
 import React from 'react';
 import Multisensor from './Multisensor.jsx';
 import Mode from './Mode.jsx';
+import Cooler from './Cooler.jsx';
 import {I1820Client} from '@i1820/api';
 
 import {version} from '../package.json';
@@ -28,9 +29,17 @@ class App extends React.Component {
       <div></div>
     );
     let modes = [];
+    let cooler = (
+      <div></div>
+    );
+
     if (this.state.agents.length > 0) {
       multisensor = (
         <Multisensor thing={this.state.agents[0].getThingsByType('multisensor')[0]} />
+      )
+
+      cooler = (
+        <Cooler thing={this.state.agents[0].getThingsByType('cooler')[0]} />
       )
 
       this.state.agents[0].getThingsByType('mode').forEach((mode, index) => {
@@ -54,6 +63,10 @@ class App extends React.Component {
               <h2>Scenarios</h2>
               <div className="card-deck">
                 {modes}
+              </div>
+              <h2>Actuators</h2>
+              <div className="card-deck">
+                {cooler}
               </div>
             </div>
             <div className="col-4">
