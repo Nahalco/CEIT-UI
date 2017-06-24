@@ -29,6 +29,7 @@ class Multisensor extends React.Component {
         <RadialGauge
           units='°C'
           title='Temperature'
+          height={300}
           value={this.state.temperature}
           minValue={0}
           maxValue={50}
@@ -38,6 +39,7 @@ class Multisensor extends React.Component {
         <RadialGauge
           units='%'
           title='Humidity'
+          height={300}
           value={this.state.humidity}
           minValue={0}
           maxValue={100}
@@ -47,6 +49,7 @@ class Multisensor extends React.Component {
         <RadialGauge
           units='%'
           title='Light'
+          height={300}
           value={this.state.light / 10}
           minValue={0}
           maxValue={100}
