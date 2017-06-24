@@ -5,7 +5,7 @@ class Mode extends React.Component {
     super(props);
     this.thing = props.thing;
     this.state = {
-      mode: 'Off'
+      mode: 'off'
     };
   }
 
@@ -15,25 +15,38 @@ class Mode extends React.Component {
         this.setState({
           mode: "off"
         });
+        this.thing.configuration = {
+          on: false
+        };
         break;
       case "10":
         this.setState({
           mode: "Cool"
         });
+        this.thing.configuration = {
+          on: true,
+          temperature: 16
+        };
         break;
       case "20":
         this.setState({
           mode: "Fan"
         });
+        this.thing.configuration = {
+          on: true,
+          temperature: 25
+        };
         break;
       case "30":
         this.setState({
           mode: "Heat"
         });
+        this.thing.configuration = {
+          on: true,
+          temperature: 30
+        };
         break;
     }
-    this.thing.configuration = {
-    };
   }
 
   render() {
