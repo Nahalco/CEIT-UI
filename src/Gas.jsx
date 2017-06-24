@@ -14,7 +14,7 @@ class Gas extends React.Component {
   componentDidMount() {
     this.thing.log.then((result) => {
       this.setState({
-        Gas: result['gas']['value'],
+        gas: result['gas']['value'],
       });
     });
   }
