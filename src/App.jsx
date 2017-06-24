@@ -1,5 +1,6 @@
 import React from 'react';
 import Multisensor from './Multisensor.jsx';
+import Gas from './Gas.jsx';
 import Mode from './Mode.jsx';
 import Cooler from './Cooler.jsx';
 import {I1820Client} from '@i1820/api';
@@ -28,6 +29,9 @@ class App extends React.Component {
     let multisensor = (
       <div></div>
     );
+    let gas = (
+      <div></div>
+    );
     let modes = [];
     let cooler = (
       <div></div>
@@ -36,11 +40,15 @@ class App extends React.Component {
     if (this.state.agents.length > 0) {
       multisensor = (
         <Multisensor thing={this.state.agents[0].getThingsByType('multisensor')[0]} />
-      )
+      );
 
       cooler = (
         <Cooler thing={this.state.agents[0].getThingsByType('cooler')[0]} />
-      )
+      );
+
+      gas = (
+        <Gas thing={this.state.agents[0].getThingByType('gas')[0]} />
+      );
 
       this.state.agents[0].getThingsByType('mode').forEach((mode, index) => {
         modes.push((<Mode thing={mode} key={index} />))
@@ -70,6 +78,7 @@ class App extends React.Component {
               </div>
             </div>
             <div className="col-4">
+              {gas}
               {multisensor}
             </div>
           </div>
