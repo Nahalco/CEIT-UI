@@ -47,7 +47,7 @@ class App extends React.Component {
       );
 
       gas = (
-        <Gas thing={this.state.agents[0].getThingByType('gas')[0]} />
+        <Gas thing={this.state.agents[0].getThingsByType('gas')[0]} />
       );
 
       this.state.agents[0].getThingsByType('mode').forEach((mode, index) => {
