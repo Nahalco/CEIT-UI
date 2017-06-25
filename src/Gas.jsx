@@ -31,11 +31,11 @@ class Gas extends React.Component {
           <RadialGauge
             title='Gas'
             height={300}
-            value={this.state.gas / 10}
+            value={this.state.gas - 512}
             minValue={0}
-            maxValue={100}
+            maxValue={200}
             majorTicks={['0', '10', '20', '30', '40', '50', '60', '70', '80', '90', '100']}
-            minorTicks={5}
+            minorTicks={2}
           ></RadialGauge>
         </div>
       </div>
