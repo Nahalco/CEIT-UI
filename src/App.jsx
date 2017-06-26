@@ -3,6 +3,7 @@ import Multisensor from './Multisensor.jsx';
 import Gas from './Gas.jsx';
 import Mode from './Mode.jsx';
 import Cooler from './Cooler.jsx';
+import Lamp from './Lamp.jsx';
 import {I1820Client} from '@i1820/api';
 
 import {version} from '../package.json';
@@ -33,6 +34,9 @@ class App extends React.Component {
       <div></div>
     );
     let modes = [];
+    let lamp = (
+      <div></div>
+    );
     let cooler = (
       <div></div>
     );
@@ -48,6 +52,10 @@ class App extends React.Component {
 
       gas = (
         <Gas thing={this.state.agents[0].getThingsByType('gas')[0]} />
+      );
+
+      lamp = (
+        <Lamp things={this.state.agents[0].getThingsByType('lamp')} />
       );
 
       this.state.agents[0].getThingsByType('mode').forEach((mode, index) => {
@@ -75,6 +83,7 @@ class App extends React.Component {
               <h2>Actuators</h2>
               <div className="card-deck">
                 {cooler}
+                {lamp}
               </div>
             </div>
             <div className="col-4">
