@@ -12,7 +12,7 @@ import {version} from '../package.json';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.client = new I1820Client('http://iot.ceit.aut.ac.ir:58902');
+    this.client = new I1820Client('http://iot.ceit.aut.ac.ir:58902', true);
     this.state = {
       agents: []
     };
