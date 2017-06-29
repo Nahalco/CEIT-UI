@@ -11,6 +11,14 @@ class Multisensor extends React.Component {
       humidity: 0,
       light: 0
     }
+    this.thing.on('log', (result) => {
+      console.log(result)
+      this.setState({
+        temperature: result['temperature'],
+        humidity: result['humidity'],
+        light: result['light']
+      })
+    })
   }
 
   componentDidMount() {
