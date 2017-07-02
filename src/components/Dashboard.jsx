@@ -11,6 +11,7 @@ import Multisensor from './widgets/Multisensor'
 import Lamps from './widgets/Lamps'
 import Gas from './widgets/Gas'
 import Mode from './widgets/Mode'
+import Cooler from './widgets/Cooler'
 
 // We are using bootstrap as the UI library
 import 'bootstrap/dist/css/bootstrap.css'
@@ -100,6 +101,20 @@ class App extends Component {
         }),
 
         layout: addWidget(this.state.layout, 0, 1, 'gasWidget')
+      })
+
+      this.setState({
+        widgets: Object.assign(this.state.widgets, {
+          coolerWidget: {
+            type: Cooler,
+            title: 'Cooler',
+            props: {
+              thing: agents[0].getThingsByType('cooler')[0]
+            }
+          }
+        }),
+
+        layout: addWidget(this.state.layout, 0, 1, 'coolerWidget')
       })
 
       for (const thing of agents[0].getThingsByType('mode')) {
