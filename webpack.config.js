@@ -24,7 +24,7 @@ const basePlugins = [
 ]
 
 const devPlugins = [
-  new webpack.NoErrorsPlugin()
+  new webpack.NoEmitOnErrorsPlugin()
 ]
 
 const prodPlugins = [
