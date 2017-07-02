@@ -8,7 +8,7 @@ import CustomFrame from './CustomFrame'
 
 // Widgets of the dashboard.
 import Multisensor from './widgets/Multisensor'
-import Lamp from './widgets/Lamp'
+import Lamps from './widgets/Lamps'
 
 // We are using bootstrap as the UI library
 import 'bootstrap/dist/css/bootstrap.css'
@@ -71,9 +71,9 @@ class App extends Component {
 
       this.setState({
         widgets: Object.assign(this.state.widgets, {
-          lampWidget: {
-            type: Lamp,
-            title: 'Lamp',
+          lampsWidget: {
+            type: Lamps,
+            title: 'Lamps',
             props: {
               things: agents[0].getThingsByType('lamp')
             }
