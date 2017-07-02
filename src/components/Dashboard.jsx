@@ -93,7 +93,7 @@ class App extends Component {
             type: Gas,
             title: 'Gas',
             props: {
-              things: agents[0].getThingsByType('gas')
+              thing: agents[0].getThingsByType('gas')[0]
             }
           }
         }),
