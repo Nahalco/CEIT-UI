@@ -4,7 +4,7 @@
   "description": "Web application for managing CEIT department of AUT",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.js --color",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server -d --inline --hot --color --progress --no-info",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server -d --inline --hot  --host 0.0.0.0 --color --progress --no-info",
     "lint": "eslint .",
     "start": "cross-env NODE_ENV=production node server/node-server.js"
   },
