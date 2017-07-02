@@ -28,7 +28,6 @@ const devPlugins = [
 ]
 
 const prodPlugins = [
-  new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.UglifyJsPlugin({
     compressor: {
       warnings: false
@@ -65,11 +64,9 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [
-      { test: /\.js$/, loader: 'source-map-loader' },
-      { test: /\.js$/, loader: 'eslint-loader' }
-    ],
-    loaders: [
+    rules: [
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
+      { enforce: 'pre', test: /\.js$/, loader: 'eslint-loader' },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       { test: /\.(js|jsx)$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
       { test: /\.json$/, loader: 'json-loader' },
@@ -79,6 +76,6 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   }
 }
