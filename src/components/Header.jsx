@@ -5,7 +5,7 @@ const Header = () => {
     <div className='top_nav'>
       <div className='nav_menu'>
         <nav className='dashboardHeader'>
-          Conference room
+          <h1>Conference room</h1>
         </nav>
       </div>
     </div>
