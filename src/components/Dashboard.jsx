@@ -10,6 +10,7 @@ import CustomFrame from './CustomFrame'
 import Multisensor from './widgets/Multisensor'
 import Lamps from './widgets/Lamps'
 import Gas from './widgets/Gas'
+import Mode from './widgets/Mode'
 
 // We are using bootstrap as the UI library
 import 'bootstrap/dist/css/bootstrap.css'
@@ -100,6 +101,22 @@ class App extends Component {
 
         layout: addWidget(this.state.layout, 0, 1, 'gasWidget')
       })
+
+      for (const thing of agents[0].getThingsByType('mode')) {
+        this.setState({
+          widgets: Object.assign(this.state.widgets, {
+            modeWidget: {
+              type: Mode,
+              title: 'Scenario',
+              props: {
+                thing: thing
+              }
+            }
+          }),
+
+          layout: addWidget(this.state.layout, 0, 2, 'modeWidget')
+        })
+      }
     })
   }
 
