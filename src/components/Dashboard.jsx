@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Dashboard from 'react-dazzle'
+import Dashboard, { addWidget } from 'react-dazzle'
 
 // App components
 import Header from './Header'
@@ -18,30 +18,58 @@ import 'react-dazzle/lib/style/style.css'
 // Our styles
 import '../styles/custom.css'
 
+// I1820
+import {I1820Client} from '@i1820/api'
+
 class App extends Component {
   constructor (props) {
     super(props)
+    this.client = new I1820Client('http://iot.ceit.aut.ac.ir:58902', true)
+
     this.state = {
+      // are we connected to I1820 ?
+      loading: true,
+
       // Widgets that are available in the dashboard
-      widgets: {
-        MultisensorWidget: {
-          type: Multisensor,
-          title: 'Multisensor'
-        }
-      },
+      widgets: {},
+
       // Layout of the dashboard
       layout: {
         rows: [{
           columns: [{
-            className: 'col-12',
-            widgets: [{key: 'MultisensorWidget'}]
+            className: 'col-6',
+            widgets: []
           }]
         }]
       }
     }
   }
 
+  componentDidMount () {
+    this.client.discovery().then((agents) => {
+      this.setState({
+        loading: false,
+
+        widgets: {
+          multisensorWidget: {
+            type: Multisensor,
+            title: 'Multisensor',
+            props: {
+              thing: agents[0].getThingsByType('multisensor')[0]
+            }
+          }
+        },
+
+        layout: addWidget(this.state.layout, 0, 0, 'multisensorWidget')
+      })
+    })
+  }
+
   render () {
+    if (this.state.loading) {
+      return <Container />
+    }
+
     return (
       <Container>
         <Header />
