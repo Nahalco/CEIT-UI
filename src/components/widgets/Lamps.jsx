@@ -2,7 +2,7 @@ import React from 'react'
 
 import {I1820Thing} from '@i1820/api'
 
-class Lamp extends React.Component {
+class Lamps extends React.Component {
   constructor (props) {
     super(props)
     this.things = props.things
@@ -56,8 +56,8 @@ class Lamp extends React.Component {
   }
 }
 
-Lamp.propTypes = {
+Lamps.propTypes = {
   things: React.PropTypes.arrayOf(React.PropTypes.instanceOf(I1820Thing))
 }
 
-export default Lamp
+export default Lamps
