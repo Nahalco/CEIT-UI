@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/Aolab/Aolab-UI#readme",
   "dependencies": {
-    "@i1820/api": "^2.2.0",
+    "@i1820/api": "^2.2.1",
     "bootstrap": "^4.0.0-alpha.6",
     "helmet": "^3.6.1",
     "react-canvas-gauges": "^1.2.1",
