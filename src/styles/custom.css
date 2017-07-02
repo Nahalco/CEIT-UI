@@ -1,8 +1,7 @@
 
 body {
-  color: #73879C;
-  background: white;
-  /*#ECF0F1; #FCFCFC*/
+  color: #000000;
+  background: #9e9e9e;
   font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -10,6 +9,7 @@ body {
 }
 .main_container .top_nav {
   display: block;
+  margin-bottom: 10px;
 }
 .main_container {
   width: 1200px;
@@ -3424,6 +3424,6 @@ ul.project_files li a i {
 
 .dashboardHeader {
   text-align: center;
-  height: 45px;
+  height: 85px;
   padding-top: 10px;
 }
