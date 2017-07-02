@@ -1,32 +1,32 @@
-import React, { Component } from 'react';
-import Dashboard, { addWidget } from 'react-dazzle';
+import React, { Component } from 'react'
+import Dashboard from 'react-dazzle'
 
 // App components
-import Header from './Header';
-import Container from './Container';
-import CustomFrame from './CustomFrame';
+import Header from './Header'
+import Container from './Container'
+import CustomFrame from './CustomFrame'
 
 // Widgets of the dashboard.
-import Multisensor from './widgets/Multisensor';
+import Multisensor from './widgets/Multisensor'
 
 // We are using bootstrap as the UI library
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css'
 
 // Default styes of dazzle.
-import 'react-dazzle/lib/style/style.css';
+import 'react-dazzle/lib/style/style.css'
 
 // Our styles
-import '../styles/custom.css';
+import '../styles/custom.css'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       // Widgets that are available in the dashboard
       widgets: {
         MultisensorWidget: {
           type: Multisensor,
-          title: 'Multisensor',
+          title: 'Multisensor'
         }
       },
       // Layout of the dashboard
@@ -34,14 +34,14 @@ class App extends Component {
         rows: [{
           columns: [{
             className: 'col-12',
-            widgets: [{key: 'MultisensorWidget'}],
-          }],
-        }],
-      },
-    };
+            widgets: [{key: 'MultisensorWidget'}]
+          }]
+        }]
+      }
+    }
   }
 
-  render() {
+  render () {
     return (
       <Container>
         <Header />
@@ -51,9 +51,9 @@ class App extends Component {
           widgets={this.state.widgets}
           editable={false}
         />
-    </Container>
-    );
+      </Container>
+    )
   }
 }
 
-export default App;
+export default App
