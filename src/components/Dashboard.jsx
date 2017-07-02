@@ -9,6 +9,7 @@ import CustomFrame from './CustomFrame'
 // Widgets of the dashboard.
 import Multisensor from './widgets/Multisensor'
 import Lamps from './widgets/Lamps'
+import Gas from './widgets/Gas'
 
 // We are using bootstrap as the UI library
 import 'bootstrap/dist/css/bootstrap.css'
@@ -41,7 +42,10 @@ class App extends Component {
             className: 'col-6',
             widgets: []
           }, {
-            className: 'col-6',
+            className: 'col-3',
+            widgets: []
+          }, {
+            className: 'col-3',
             widgets: []
           }]
         }]
@@ -80,7 +84,21 @@ class App extends Component {
           }
         }),
 
-        layout: addWidget(this.state.layout, 0, 1, 'lampWidget')
+        layout: addWidget(this.state.layout, 0, 1, 'lampsWidget')
+      })
+
+      this.setState({
+        widgets: Object.assign(this.state.widgets, {
+          gasWidget: {
+            type: Gas,
+            title: 'Gas',
+            props: {
+              things: agents[0].getThingsByType('gas')
+            }
+          }
+        }),
+
+        layout: addWidget(this.state.layout, 0, 1, 'gasWidget')
       })
     })
   }
