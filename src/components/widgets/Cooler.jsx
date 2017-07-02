@@ -7,7 +7,7 @@ class Cooler extends React.Component {
     super(props)
     this.thing = props.thing
     this.state = {
-      mode: 'off'
+      mode: 'OFF'
     }
   }
 
@@ -15,7 +15,7 @@ class Cooler extends React.Component {
     switch (event.target.value) {
       case '0':
         this.setState({
-          mode: 'off'
+          mode: 'OFF'
         })
         this.thing.configuration = {
           on: false
@@ -54,7 +54,7 @@ class Cooler extends React.Component {
   render () {
     return (
       <div>
-        <p>{this.state.mode}</p>
+        <h4>{this.state.mode}</h4>
         <input type='range' defaultValue='0' min='0' max='30' step='10' onChange={(event) => this.turn(event)} />
       </div>
     )
