@@ -3,5 +3,5 @@ node_js:
   - "4"
   - "7"
   - "node"
-scripts:
-  "npm run build"
+script:
+  - "npm run build"
