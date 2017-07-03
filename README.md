@@ -1,5 +1,5 @@
 # Aolab-UI
-[![Travis branch](https://img.shields.io/travis/aolab/aolab-ui/master.svg?style=flat-square)](https://travis-ci.org/aolab/aolab-ui)
+[![Travis branch](https://img.shields.io/travis/AoLab/AoLab-UI/master.svg?style=flat-square)](https://travis-ci.org/AoLab/AoLab-UI)
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
 
 ## Introduction
