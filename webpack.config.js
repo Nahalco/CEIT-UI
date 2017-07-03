@@ -27,13 +27,7 @@ const devPlugins = [
   new webpack.NoEmitOnErrorsPlugin()
 ]
 
-const prodPlugins = [
-  new webpack.optimize.UglifyJsPlugin({
-    compressor: {
-      warnings: false
-    }
-  })
-]
+const prodPlugins = []
 
 const plugins = basePlugins
   .concat(process.env.NODE_ENV === 'production' ? prodPlugins : [])
