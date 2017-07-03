@@ -12,6 +12,7 @@ import Lamps from './widgets/Lamps'
 import Gas from './widgets/Gas'
 import Mode from './widgets/Mode'
 import Cooler from './widgets/Cooler'
+import Projector from './widgets/Projector'
 
 // We are using bootstrap as the UI library
 import 'bootstrap/dist/css/bootstrap.css'
@@ -101,6 +102,20 @@ class App extends Component {
         }),
 
         layout: addWidget(this.state.layout, 0, 1, 'gasWidget')
+      })
+
+      this.setState({
+        widgets: Object.assign(this.state.widgets, {
+          projectorWidget: {
+            type: Projector,
+            title: 'Projector',
+            props: {
+              thing: agents[0].getThingsByType('projector')[0]
+            }
+          }
+        }),
+
+        layout: addWidget(this.state.layout, 0, 1, 'projectorWidget')
       })
 
       this.setState({
