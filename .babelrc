@@ -3,6 +3,9 @@
   "env": {
     "test": {
       "plugins": ["__coverage__"]
+    },
+    "production": {
+      "presets": ["babili"]
     }
   }
 }
