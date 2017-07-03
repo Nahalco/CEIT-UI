@@ -17,7 +17,7 @@ class Projector extends React.Component {
   render () {
     return (
       <div>
-        <button type='button' className='btn btn-success' onClick={() => this.turn()}>Success</button>
+        <button type='button' className='btn btn-success' onClick={() => this.turn()}>ON OFF</button>
       </div>
     )
   }
