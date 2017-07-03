@@ -43,11 +43,11 @@ class Multisensor extends React.Component {
           title='Temperature'
           height={300}
           value={this.state.temperature}
-          minValue={0}
+          minValue={10}
           maxValue={50}
           majorTicks={['10', '15', '20', '25', '30', '35', '40', '45', '50']}
           highlights={[
-            { from: 0, to: 25, color: 'rgba(0,255,0,.15)' },
+            { from: 10, to: 25, color: 'rgba(0,255,0,.15)' },
             { from: 25, to: 35, color: 'rgba(255,255,0,.15)' },
             { from: 35, to: 50, color: 'rgba(255,30,0,.25)' }
           ]}
