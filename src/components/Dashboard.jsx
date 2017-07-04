@@ -14,6 +14,7 @@ import Mode from './widgets/Mode'
 import Cooler from './widgets/Cooler'
 import Projector from './widgets/Projector'
 import Tv from './widgets/Tv'
+import Curtain from './widgets/Curtain'
 import FireAlarm from './widgets/FireAlarm'
 
 // We are using bootstrap as the UI library
@@ -120,6 +121,20 @@ class App extends Component {
         }),
 
         layout: addWidget(this.state.layout, 0, 2, 'fireAlarmWidget')
+      })
+
+      this.setState({
+        widgets: Object.assign(this.state.widgets, {
+          curtainWidget: {
+            type: Curtain,
+            title: 'Curtain',
+            props: {
+              thing: agents[0].getThingsByType('curtain')[0]
+            }
+          }
+        }),
+
+        layout: addWidget(this.state.layout, 0, 2, 'curtainWidget')
       })
 
       this.setState({
