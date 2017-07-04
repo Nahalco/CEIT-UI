@@ -12,9 +12,15 @@ class FireAlarm extends React.Component {
     }
 
     this.thing.on('log', (result) => {
-      this.setState({
-        gas: result['gas']
-      })
+      if (result['gas'] >= 610) {
+        this.setState({
+          alarm: true
+        })
+      } else {
+        this.setState({
+          alarm: false
+        })
+      }
     })
   }
 
