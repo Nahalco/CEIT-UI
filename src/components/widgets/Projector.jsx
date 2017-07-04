@@ -9,7 +9,7 @@ class Projector extends React.Component {
   }
 
   turn () {
-    this.this.configuration = {
+    this.thing.configuration = {
       on: true
     }
   }
