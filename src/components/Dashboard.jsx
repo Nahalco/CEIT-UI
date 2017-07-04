@@ -21,8 +21,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 // Default styes of dazzle.
 import 'react-dazzle/lib/style/style.css'
 
-// Our styles
-import '../styles/custom.css'
+// styles
+import '../styles/main.less'
+import '../styles/frame.less'
 
 // I1820
 import {I1820Client} from '@i1820/api'
@@ -43,13 +44,13 @@ class App extends Component {
       layout: {
         rows: [{
           columns: [{
-            className: 'col-6 orange-col',
+            className: 'col-6 col-orange',
             widgets: []
           }, {
-            className: 'col-3 green-col',
+            className: 'col-3 col-green',
             widgets: []
           }, {
-            className: 'col-3 blue-col',
+            className: 'col-3 col-blue',
             widgets: []
           }]
         }]
