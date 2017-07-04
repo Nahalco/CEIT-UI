@@ -62,6 +62,7 @@ module.exports = {
     rules: [
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
       { enforce: 'pre', test: /\.js$/, loader: 'eslint-loader' },
+      { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       { test: /\.(js|jsx)$/, loaders: ['react-hot-loader', 'babel-loader'], exclude: /node_modules/ },
       { test: /\.json$/, loader: 'json-loader' },
