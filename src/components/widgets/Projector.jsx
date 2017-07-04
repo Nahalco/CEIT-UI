@@ -24,7 +24,7 @@ class Projector extends React.Component {
 }
 
 Projector.propTypes = {
-  thing: React.PropTypes.arrayOf(React.PropTypes.instanceOf(I1820Thing))
+  thing: React.PropTypes.instanceOf(I1820Thing)
 }
 
 export default Projector
