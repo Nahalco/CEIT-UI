@@ -7,9 +7,17 @@ class Gas extends React.Component {
   constructor (props) {
     super(props)
     this.thing = props.thing
+
     this.state = {
       gas: 0
     }
+
+    this.thing.on('log', (result) => {
+      console.log(result)
+      this.setState({
+        gas: result['gas']
+      })
+    })
   }
 
   componentDidMount () {
