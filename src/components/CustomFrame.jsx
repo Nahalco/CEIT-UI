@@ -2,12 +2,12 @@ import React, { PropTypes } from 'react'
 
 const CustomFrame = ({children, onRemove, editable, title}) => {
   return (
-    <div className='x_panel fixed_height_320'>
-      <div className='x_title'>
+    <div className='panel'>
+      <div className='title'>
         <h2>{title}</h2>
         <div className='clearfix' />
       </div>
-      <div className='x_content'>
+      <div className='content'>
         {children}
       </div>
     </div>
