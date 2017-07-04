@@ -13,6 +13,7 @@ import Gas from './widgets/Gas'
 import Mode from './widgets/Mode'
 import Cooler from './widgets/Cooler'
 import Projector from './widgets/Projector'
+import FireAlarm from './widgets/FireAlarm'
 
 // We are using bootstrap as the UI library
 import 'bootstrap/dist/css/bootstrap.css'
@@ -102,6 +103,20 @@ class App extends Component {
         }),
 
         layout: addWidget(this.state.layout, 0, 1, 'gasWidget')
+      })
+
+      this.setState({
+        widgets: Object.assign(this.state.widgets, {
+          fireAlarmWidget: {
+            type: FireAlarm,
+            title: 'Fire Alarm',
+            props: {
+              thing: agents[0].getThingsByType('gas')[0]
+            }
+          }
+        }),
+
+        layout: addWidget(this.state.layout, 0, 2, 'fireAlarmWidget')
       })
 
       this.setState({
