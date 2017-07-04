@@ -23,6 +23,7 @@ import 'react-dazzle/lib/style/style.css'
 
 // styles
 import '../styles/main.less'
+import '../styles/nav.less'
 import '../styles/frame.less'
 
 // I1820
