@@ -43,13 +43,13 @@ class App extends Component {
       layout: {
         rows: [{
           columns: [{
-            className: 'col-6',
+            className: 'col-6 orange-col',
             widgets: []
           }, {
-            className: 'col-3',
+            className: 'col-3 green-col',
             widgets: []
           }, {
-            className: 'col-3',
+            className: 'col-3 blue-col',
             widgets: []
           }]
         }]
