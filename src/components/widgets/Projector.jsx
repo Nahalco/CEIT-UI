@@ -14,10 +14,17 @@ class Projector extends React.Component {
     }
   }
 
+  input () {
+    this.thing.configuration = {
+      input: true
+    }
+  }
+
   render () {
     return (
       <div>
         <button type='button' className='btn btn-success' onClick={() => this.turn()}>ON OFF</button>
+        <button type='button' className='btn btn-success' onClick={() => this.input()}>Input</button>
       </div>
     )
   }
