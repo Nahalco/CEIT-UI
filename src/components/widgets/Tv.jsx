@@ -17,7 +17,7 @@ class Tv extends React.Component {
   render () {
     return (
       <div>
-        <button type='button' className='btn btn-success m-2' onClick={() => this.turn()}>ON OFF</button>
+        <button type='button' className='btn btn-success m-2' onClick={() => this.turn()}>ON/OFF</button>
       </div>
     )
   }
