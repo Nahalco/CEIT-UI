@@ -1,16 +1,17 @@
 @panel-min-height: 220px;
+@panel-backgroun-alpha: 0.7;
 
 .col {
 	&-orange .panel {
-		background: rgba(255,145,8,0.5);
+		background: rgba(255,145,8,@panel-background-alpha);
 	}
 
 	&-green .panel {
-		background: rgba(102,178,102,0.5);
+		background: rgba(102,178,102,@panel-background-alpha);
 	}
 
 	&-blue .panel {
-		background: rgba(127,127,255,0.5);
+		background: rgba(127,127,255,@panel-background-alpha);
 	}
 }
 
