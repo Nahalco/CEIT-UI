@@ -9,6 +9,6 @@
  */
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import Dashboard from './components/Dashboard'
+import App from './components/App'
 
-ReactDOM.render(<Dashboard />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
