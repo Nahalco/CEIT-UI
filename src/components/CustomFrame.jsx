@@ -2,13 +2,15 @@ import React, { PropTypes } from 'react'
 
 const CustomFrame = ({children, onRemove, editable, title}) => {
   return (
-    <div className='panel'>
-      <div className='title'>
-        <h2>{title}</h2>
-        <div className='clearfix' />
-      </div>
-      <div className='content'>
-        {children}
+    <div className='panel card'>
+      <div className='card-block'>
+        <div className='panel-title'>
+          <h2 className='card-title'>{title}</h2>
+          <div className='clearfix' />
+        </div>
+        <div className='panel-content'>
+          {children}
+        </div>
       </div>
     </div>
   )
