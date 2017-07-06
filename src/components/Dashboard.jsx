@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import Dashboard, { addWidget } from 'react-dazzle'
 
-// App components
-import Header from './Header'
-import Container from './Container'
 import CustomFrame from './CustomFrame'
 
 // Widgets of the dashboard.
@@ -17,16 +14,8 @@ import Tv from './widgets/Tv'
 import Curtain from './widgets/Curtain'
 import FireAlarm from './widgets/FireAlarm'
 
-// We are using bootstrap as the UI library
-import 'bootstrap/dist/css/bootstrap.css'
-
 // Default styes of dazzle.
 import 'react-dazzle/lib/style/style.css'
-
-// styles
-import '../styles/main.less'
-import '../styles/nav.less'
-import '../styles/frame.less'
 
 // I1820
 import {I1820Client} from '@i1820/api'
@@ -199,19 +188,18 @@ class App extends Component {
 
   render () {
     if (this.state.loading) {
-      return <Container />
+      return <div>Loading</div>
     }
 
     return (
-      <Container>
-        <Header />
+      <div className='container'>
         <Dashboard
           frameComponent={CustomFrame}
           layout={this.state.layout}
           widgets={this.state.widgets}
           editable={false}
         />
-      </Container>
+      </div>
     )
   }
 }
