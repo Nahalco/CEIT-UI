@@ -30,7 +30,7 @@ class App extends React.Component {
               <a className='nav-link text-warning' href='#'>Alarms</a>
             </li>
             <li className='nav-item'>
-              <a className='nav-link text-warning' href='#'>About</a>
+              <a className='nav-link text-warning' href='/about'>About</a>
             </li>
           </ul>
         }
