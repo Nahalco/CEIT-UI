@@ -165,7 +165,7 @@ class App extends Component {
           }
         }),
 
-        layout: addWidget(this.state.layout, 0, 1, 'coolerWidget')
+        layout: addWidget(this.state.layout, 0, 2, 'coolerWidget')
       })
 
       for (const thing of agents[0].getThingsByType('mode')) {
