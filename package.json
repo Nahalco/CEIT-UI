@@ -28,7 +28,8 @@
     "bootstrap": "^4.0.0-alpha.6",
     "helmet": "^3.6.1",
     "react-canvas-gauges": "^1.2.1",
-    "react-dazzle": "^1.2.5"
+    "react-dazzle": "^1.2.5",
+    "react-sidebar": "^2.3.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
