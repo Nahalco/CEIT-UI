@@ -24,7 +24,7 @@ class App extends React.Component {
         sidebar={
           <ul className='nav nav-pills flex-column'>
             <li className='nav-item'>
-              <a className='nav-link text-white bg-warning' href='#'>Home</a>
+              <a className='nav-link text-white bg-warning' href='/'>Home</a>
             </li>
             <li className='nav-item'>
               <a className='nav-link text-warning' href='#'>Alarms</a>
