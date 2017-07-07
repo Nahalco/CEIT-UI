@@ -23,21 +23,27 @@ class App extends React.Component {
         sidebar={
           <ul className='nav nav-pills flex-column'>
             <li className='nav-item'>
-              <a className='nav-link text-white bg-warning' href='/'>Home</a>
+              <a className='nav-link text-warning' href='/'>Home</a>
             </li>
             <li className='nav-item'>
               <a className='nav-link text-warning' href='#'>Alarms</a>
             </li>
             <li className='nav-item'>
-              <a className='nav-link text-warning' href='#'>About</a>
+              <a className='nav-link text-white bg-warning' href='/about'>About</a>
             </li>
           </ul>
         }
         docked
       >
         <Header />
-        <div>
-          We are the Aolab
+        <div className='row'>
+          <div className='col-2' />
+          <div className='col-8'>
+            <p>
+              Aolab is a IoT research and development laboratory in Computer &amp; Information
+              Technology Engineering Department of Amirkabir University of Technology.
+            </p>
+          </div>
         </div>
       </Sidebar>
     )
