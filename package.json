@@ -29,6 +29,8 @@
     "helmet": "^3.6.1",
     "react-canvas-gauges": "^1.2.1",
     "react-dazzle": "^1.2.5",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "react-sidebar": "^2.3.2"
   },
   "devDependencies": {
