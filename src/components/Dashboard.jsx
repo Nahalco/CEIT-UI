@@ -36,13 +36,13 @@ class App extends Component {
       layout: {
         rows: [{
           columns: [{
-            className: 'col-6 col-orange',
+            className: 'col-md-6 col-sm-12 col-orange',
             widgets: []
           }, {
-            className: 'col-3 col-green',
+            className: 'col-md-3 col-sm-12 col-green',
             widgets: []
           }, {
-            className: 'col-3 col-blue',
+            className: 'col-md-3 col-sm-12 col-blue',
             widgets: []
           }]
         }]
