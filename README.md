@@ -1,5 +1,5 @@
-# Aolab-UI
-[![Travis branch](https://img.shields.io/travis/AoLab/AoLab-UI/master.svg?style=flat-square)](https://travis-ci.org/AoLab/AoLab-UI)
+# CEIT-UI
+[![Travis branch](https://img.shields.io/travis/Nahalco/CEIT-UI/master.svg?style=flat-square)](https://travis-ci.org/Nahalco/CEIT-UI)
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
 
