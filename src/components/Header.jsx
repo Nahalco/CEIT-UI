@@ -4,9 +4,7 @@ const Header = () => {
   return (
     <div className='nav-top'>
       <nav>
-        <div className='nav-title'>
-          <img src={require('../assets/aolab-logo.png')} height='60px' />
-        </div>
+        <div className='nav-title' />
       </nav>
     </div>
   )
