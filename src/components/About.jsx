@@ -22,6 +22,9 @@ class App extends React.Component {
         }}
         sidebar={
           <ul className='nav nav-pills flex-column'>
+            <li className='nav-item mt-auto p-2'>
+              <img src={require('../assets/aolab-logo.png')} height='60px' />
+            </li>
             <li className='nav-item'>
               <a className='nav-link text-warning' href='/'>Home</a>
             </li>
