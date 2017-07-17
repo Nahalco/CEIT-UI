@@ -30,15 +30,11 @@ class FireAlarm extends React.Component {
   render () {
     if (this.state.alarm) {
       return (
-        <div className='alert alert-danger' role='alert'>
-          <h4 className='alert-heading'>Fire !?!</h4>
-        </div>
+        <h1 className='font-weight-bold text-danger display-4'>Fire</h1>
       )
     } else {
       return (
-        <div className='alert alert-success' role='alert'>
-          <h4 className='alert-heading'>There is no fire</h4>
-        </div>
+        <h1 className='display-4'>No Fire</h1>
       )
     }
   }
