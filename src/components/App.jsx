@@ -18,7 +18,7 @@ class App extends React.Component {
       <Sidebar
         styles={{
           sidebar: {
-            background: 'rgba(0,0,0,0.6)'
+            background: 'rgba(174, 179, 184, 0.7)'
           }
         }}
         sidebar={
